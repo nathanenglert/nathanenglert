@@ -1,16 +1,24 @@
+let activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`);
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
 	siteMetadata: {
-		title: 'Gatsby Bulma Quickstart',
-		author: 'Aman Mittal',
+		title: 'Nathan Englert',
+		author: 'Nathan Englert',
 		imageUrl: 'https://i.imgur.com/Vz81GEl.png',
 		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
 		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
-		twitter: 'https://twitter.com/amanhimself',
-		github: `https://github.com/amandeepmittal`,
-		medium: 'https://medium.com/@amanhimself',
+		twitter: 'https://twitter.com/nathanenglert',
+		github: `https://github.com/nathanenglert`,
 		gatsby: 'https://www.gatsbyjs.org/',
 		bulma: 'https://bulma.io/',
-		siteUrl: `https://www.example.com`
+		siteUrl: `https://www.nathanenglert.com`
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
@@ -36,16 +44,38 @@ module.exports = {
 				orientation: 'portrait'
 			}
 		},
-		`gatsby-plugin-sass`,
+		'gatsby-plugin-sass',
 		{
-			resolve: `gatsby-plugin-google-analytics`,
+			resolve: 'gatsby-plugin-google-analytics',
 			options: {
 				trackingId: 'UA-XXXXXXXX-X',
 				// Setting this parameter is optional (requried for some countries such as Germany)
 				anonymize: true
 			}
 		},
-		`gatsby-plugin-sitemap`
+		'gatsby-plugin-sitemap',
+		{
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve:`gatsby-remark-default-html-attrs`,
+            options: {
+              "p": {
+                className: "content",
+              }
+            }
+          }
+        ],
+      },
+    },
+		{
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACEID,
+        accessToken: process.env.GATSBY_CONTENTFUL_TOKEN
+      }
+		},		
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
 		// 'gatsby-plugin-offline',

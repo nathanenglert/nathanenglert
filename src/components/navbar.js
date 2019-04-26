@@ -1,41 +1,27 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
 
 import './style.scss';
-import gatsbyLogo from '../images/gatsby-icon.png';
-import bulmaLogo from '../images/bulma-logo.png';
 
-const Navbar = () => (
-	<div className="hero-head is-hidden-mobile">
-		<nav className="navbar">
-			<div className="container">
-				<div className="navbar-brand">
-					<a
-						className="navbar-item"
-						href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-					>
-						<img src={gatsbyLogo} alt="Logo-1" />
-						<img src={bulmaLogo} alt="Logo-2" />
-					</a>
-				</div>
-				<div id="navbarMenuHeroA" className="navbar-menu">
-					<div className="navbar-end">
-						<span className="navbar-item">
-							<a
-								className="button is-danger is-inverted"
-								href="https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-							>
-								<span className="icon">
-									<FaGithub size="fa-2x" />
-								</span>
-								<span>Download</span>
-							</a>
-						</span>
-					</div>
+const Navbar = ({ className }) => (
+	<nav className={`navbar ${className}`}>
+		<div className="container">
+			<div className="navbar-brand">
+				<a className="navbar-item has-text-weight-bold is-size-5" href="/">&lt;NE&gt;</a>
+				<span className="navbar-burger burger" data-target="navbarMenuHeroA">
+					<span></span>
+					<span></span>
+					<span></span>
+				</span>
+			</div>
+			<div id="navbarMenuHeroA" className="navbar-menu">
+				<div className="navbar-end">
+					{/* <a class="navbar-item is-active">Home</a>
+					<a class="navbar-item">Examples</a>
+					<a class="navbar-item">Documentation</a> */}
 				</div>
 			</div>
-		</nav>
-	</div>
+		</div>
+	</nav>
 );
 
 export default Navbar;

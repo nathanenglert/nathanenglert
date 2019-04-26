@@ -1,29 +1,79 @@
-// Importing variables
-@import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
 
-// Importing Bulma from node_modules
+@import './variables.scss';
 @import '~bulma/bulma.sass';
 
-.gradientBg {
-	display: flex;
-	background: linear-gradient(to right, $primary-color, $secondary-color);
+.main-container {
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 280px;
+
+  footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
-.center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.highlights .column:not(:first-child) {
+  border-left: solid 1px #efefef;
 }
 
-.footer {
-	display: flex;
-	padding: 1.5rem 1.5rem;
-	line-height: 1.5rem;
-	a {
-		border-bottom: 1px solid;
-		color: black;
-	}
-	a:hover {
-		color: $secondary-color;
-	}
+.navbar-brand,
+.has-text-emphasis {
+  font-family: $font-mono;
+}
+
+.hero {  
+  .dud {
+    color: #757575;
+  }
+
+  .subtitle {
+    font-family: $font-mono;
+  }
+}
+
+.section {
+  .title:not(.article-title) {
+    font-family: $font-mono;
+  }
+}
+
+.subtitle {
+  font-weight: bold;
+}
+
+h3.blog-date {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.blog-footer {
+  border-top: solid 1px hsl(0, 0%, 86%);
+  margin-top: 80px;
+  position: relative;
+
+  figure {
+    margin-top: -64px;
+    overflow: hidden;
+    padding: 6px;
+    z-index: 2;
+    background-color: hsl(0, 0%, 96%);
+    box-shadow: hsl(0, 0%, 86%) 0 0 0 1px;
+  }
+
+  .blog-author,
+  .blog-date {
+    position: absolute;
+    top: -24px;    
+  }
+
+  .blog-author {
+    left: 0;
+  }
+
+  .blog-date {
+    right: 0;
+  }
 }
