@@ -105,7 +105,9 @@ const IndexPage = ({ data }) => {
               <div className="columns level">
                 <div className="column level-item">
                   <div className="box">
-                    <h3 className="subtitle">Customizer</h3>
+                    <h3 className="subtitle">
+                      <Link to="/apps/customizer">Customizer</Link>
+                    </h3>
                     <p className="content">
                       A user interface for designing a custom product out of a set of available options.
                     </p>
@@ -113,7 +115,9 @@ const IndexPage = ({ data }) => {
                 </div>
                 <div className="column level-item">
                   <div className="box">
-                    <h3 className="subtitle">Raffler</h3>
+                    <h3 className="subtitle">
+                      <Link to="/apps/raffler">Raffler</Link>
+                    </h3>
                     <p className="content">
                       A simple app used to simulate a raffle or sweepstakes drawing.
                     </p>
@@ -121,7 +125,9 @@ const IndexPage = ({ data }) => {
                 </div>
                 <div className="column level-item">
                   <div className="box">
-                    <h3 className="subtitle">KASLO</h3>
+                    <h3 className="subtitle">
+                      <Link to="/apps/kaslo">KASLO</Link>
+                    </h3>
                     <p className="content">
                       A tool that helps calculate options for paying off student loan debt.
                     </p>
