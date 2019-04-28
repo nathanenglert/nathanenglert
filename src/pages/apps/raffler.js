@@ -11,7 +11,7 @@ class Raffler extends React.Component {
     this.state = {
       rafflers: [{
           name: "",
-          amount: 0
+          amount: 1
       }],
       alert: "",
       winner: ""
@@ -23,7 +23,7 @@ class Raffler extends React.Component {
 
   addRaffler() {    
     this.setState(state => {
-      const rafflers = [ ...state.rafflers, {name: "", amount: 0} ];
+      const rafflers = [ ...state.rafflers, {name: "", amount: 1} ];
 
       return {
         rafflers
