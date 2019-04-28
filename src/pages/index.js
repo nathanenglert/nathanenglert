@@ -41,18 +41,7 @@ const IndexPage = ({ data }) => {
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="box highlights">
-                <div className="columns">
-                  <div className="column">
-                    <h2 className="title is-size-4">Professional</h2>
-                    <p className="content">I am a Lead Software Engineer at New Balance. I lead a team of developers that focus on business optimization on a global scale.</p>                                            
-                    <h3 className="subtitle">Soft skills</h3>
-                    <p className="content">Team Management, Business Analysis</p>
-                    <h3 className="subtitle">Highlights</h3>
-                    <ul>
-                      <li>10+ years experience</li>
-                      <li></li>
-                    </ul>     
-                  </div>
+                <div className="columns">                  
                   <div className="column">
                     <h2 className="title is-size-4">Developer</h2>
                     <p className="content">I enjoy building things that could have an impact on someone's life. My specialty is developing for the web.</p>
@@ -61,11 +50,22 @@ const IndexPage = ({ data }) => {
                     <h3 className="subtitle">Frameworks and Tools</h3>
                     <ul>
                       <li>Node.js</li>
-                      <li>Vue</li>
-                      <li>Bitbucket</li>
+                      <li>Vue.js</li>
+                      <li>.NET Core</li>
                       <li>Visual Studio Code</li>
                       <li>Github</li>
                     </ul>
+                  </div>
+                  <div className="column">
+                    <h2 className="title is-size-4">Leader</h2>
+                    <p className="content">I am a Lead Software Engineer at New Balance. My team focuses on business optimization and connectivity to systems on a global scale.</p>                                            
+                    <h3 className="subtitle">Soft Skills</h3>
+                    <p className="content">Mentorship, Business Analysis</p>
+                    <h3 className="subtitle">Highlights</h3>
+                    <ul>
+                      <li>10+ Years Experience</li>
+                      <li>2-time Hackathon Winner</li>
+                    </ul>     
                   </div>
                   <div className="column">
                     <h2 className="title is-size-4">Hobbyist</h2>
@@ -96,7 +96,7 @@ const IndexPage = ({ data }) => {
           <div className="columns">
             <div className="column is-8 is-offset-2">
               <p className="content">
-                As I mentioned before, I enjoy building things in my free-time. Here are a few of my recent projects:
+                I enjoy building things in my free-time. Typically these side projects are centered around a new technology I want to learn or a new idea I've dreamed up. Here are a few of my recent experiments:
               </p>
             </div>
           </div>

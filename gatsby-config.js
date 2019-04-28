@@ -15,10 +15,13 @@ module.exports = {
 		description: 'A Project to bootstrap your next Gatsby + Bulma site.',
 		keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
 		twitter: 'https://twitter.com/nathanenglert',
+		devto: 'https://dev.to/nathanenglert',
 		github: `https://github.com/nathanenglert`,
+		instagram: 'https://www.instagram.com/nathanenglert/',
+		linkedin: 'https://www.linkedin.com/in/nathan-englert/',
 		gatsby: 'https://www.gatsbyjs.org/',
 		bulma: 'https://bulma.io/',
-		siteUrl: `https://www.nathanenglert.com`
+		siteUrl: `https://nathanenglert.com`
 	},
 	plugins: [
 		'gatsby-plugin-react-helmet',
@@ -48,8 +51,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-google-analytics',
 			options: {
-				trackingId: 'UA-XXXXXXXX-X',
-				// Setting this parameter is optional (requried for some countries such as Germany)
+				trackingId: 'UA-4669276-2',
 				anonymize: true
 			}
 		},

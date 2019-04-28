@@ -1,5 +1,10 @@
 import React from 'react';
 
+/*
+ * Text Scrambler Effect by Justin Windle
+ * https://codepen.io/soulwire/pen/mErPAK
+ */
+
 class TextScrambler extends React.Component {
   componentDidMount() {
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
