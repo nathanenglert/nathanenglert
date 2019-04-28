@@ -16,8 +16,8 @@ const IndexPage = ({ data }) => {
         </div>
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title is-size-1">Hi, my name is Nathan.</h1>
-            <h2 className="subtitle is-size-3">i am a <TextScrambler />.</h2>
+            <h1 className="title is-size-1 is-size-4-mobile">Hi, my name is Nathan.</h1>
+            <h2 className="subtitle is-size-3 is-size-6-mobile">i am a <TextScrambler />.</h2>
           </div>
         </div>
       </section>
@@ -29,11 +29,11 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="columns">
-            <div className="column">
+            <div className="column is-8 is-offset-2">
               <p className="content">
-                I am a technology evangelist who specializes in web development. Throughout my career, I have helped people and companies<br />
-                alike use technology to improve their day-to-day lives. It all started when I pooled my savings and birthday money to buy<br />
-                my first computer when I was twelve years old. From there, I taught myself how to design websites and developed a passion<br />
+                I am a technology evangelist who specializes in web development. Throughout my career, I have helped people and companies
+                alike use technology to improve their day-to-day lives. It all started when I pooled my savings and birthday money to buy
+                my first computer when I was twelve years old. From there, I taught myself how to design websites and developed a passion
                 for learning technology and applying it in different ways.
               </p>
             </div>
@@ -44,28 +44,18 @@ const IndexPage = ({ data }) => {
                 <div className="columns">
                   <div className="column">
                     <h2 className="title is-size-4">Professional</h2>
-                    <p className="content">I am a Lead Software Engineer at New Balance. I lead a team of developers that focus on business optimization and connectivity to back-end systems on a global scale.</p>                                            
-                  </div>
-                  <div className="column">
-                    <h2 className="title is-size-4">Developer</h2>
-                    <p className="content">I enjoy building things that could have an impact on someone's life.</p>
-                  </div>
-                  <div className="column">
-                    <h2 className="title is-size-4">Hobbyist</h2>
-                    <p className="content">I love to tinker. Here's the majority<br />of where I spend my time:</p>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column">
+                    <p className="content">I am a Lead Software Engineer at New Balance. I lead a team of developers that focus on business optimization on a global scale.</p>                                            
                     <h3 className="subtitle">Soft skills</h3>
                     <p className="content">Team Management, Business Analysis</p>
                     <h3 className="subtitle">Highlights</h3>
                     <ul>
                       <li>10+ years experience</li>
                       <li></li>
-                    </ul>                               
+                    </ul>     
                   </div>
                   <div className="column">
+                    <h2 className="title is-size-4">Developer</h2>
+                    <p className="content">I enjoy building things that could have an impact on someone's life. My specialty is developing for the web.</p>
                     <h3 className="subtitle">Languages I Speak</h3>
                     <p className="content">C#, JavaScript, HTML, CSS</p>
                     <h3 className="subtitle">Frameworks and Tools</h3>
@@ -78,6 +68,8 @@ const IndexPage = ({ data }) => {
                     </ul>
                   </div>
                   <div className="column">
+                    <h2 className="title is-size-4">Hobbyist</h2>
+                    <p className="content">I am a lifelong learner. The majority of my time is spent programming some new idea, but here are a few of my other interests:</p>
                     <h3 className="subtitle">Interests</h3>
                     <ul>
                       <li>Game Design</li>
@@ -102,7 +94,7 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="columns">
-            <div className="column">
+            <div className="column is-8 is-offset-2">
               <p className="content">
                 As I mentioned before, I enjoy building things in my free-time. Here are a few of my recent projects:
               </p>
@@ -148,9 +140,9 @@ const IndexPage = ({ data }) => {
             </div>
           </div>
           <div className="columns">
-            <div className="column">
+            <div className="column is-8 is-offset-2">
               <p className="content has-text-centered">
-                I hesitate calling this a blog, as that would indicate that I post with some regularity. I've tried that a number<br />
+                I hesitate calling this a blog, as that would indicate that I post with some regularity. I've tried that a number
                 of times and it never turns out well. No, this is a catch-all for anything that I feel like throwing out on the web.
               </p>
             </div>
@@ -158,7 +150,7 @@ const IndexPage = ({ data }) => {
           <div className="columns">
             <div className="column is-10 is-offset-1">
               {blogPosts.map(({ node: post }) => (
-                <div className="card article">
+                <div className="card article" key={post.id}>
                   <div className="card-content">
                     <div className="media">
                       <div className="media-content">
@@ -173,7 +165,7 @@ const IndexPage = ({ data }) => {
                       {post.type !== 'quote' && <Link to={post.slug}>Read more.</Link>}
                     </div>
                     <div className="article-footer">
-                      <time className="is-size-7 has-text-grey" datetime="{post.publishDate}">{post.publishDate}</time>
+                      <time className="is-size-7 has-text-grey" dateTime="{post.publishDate}">{post.publishDate}</time>
                     </div>
                   </div>
                 </div>              

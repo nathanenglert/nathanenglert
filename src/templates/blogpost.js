@@ -29,7 +29,7 @@ const BlogPost = ({ data }) => {
                 </figure>
                 <p className="blog-author has-text-weight-bold has-text-grey">Nathan Englert</p>
                 <p className="blog-date has-text-weight-bold has-text-grey">
-                  <time label={publishDate}>{publishDate}</time>
+                  <time dateTime={publishDate}>{publishDate}</time>
                 </p>
               </div>
             </div>
