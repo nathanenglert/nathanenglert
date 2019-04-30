@@ -150,13 +150,13 @@ class Raffler extends React.Component {
                 {this.state.rafflers.map((raffler, i) => (
                   <div key={i} className="field has-addons">
                     <div className="control">
-                      <input type="text" name="name" className="input" placeholder="Person's Name" value={raffler.name} onChange={this.handleChange.bind(this, i)} />
+                      <input type="text" name="name" className="input" placeholder="Person's Name" aria-label="Person's Name" value={raffler.name} onChange={this.handleChange.bind(this, i)} />
                     </div>
                     <div className="control">
-                      <input type="number" name="amount" className="input amount" placeholder="Amount" value={raffler.amount} onChange={this.handleChange.bind(this, i)} onKeyDown={this.handleKeyDown.bind(this, i)} />
+                      <input type="number" name="amount" className="input amount" placeholder="Amount" aria-label="Amount of Tickets" value={raffler.amount} onChange={this.handleChange.bind(this, i)} onKeyDown={this.handleKeyDown.bind(this, i)} />
                     </div>
                     <div className="control">
-                      <button className="button" tabIndex="-1" onClick={this.removeRaffler.bind(this, i)}>&times;</button>
+                      <button className="button" tabIndex="-1" aria-label="Remove person" onClick={this.removeRaffler.bind(this, i)}>&times;</button>
                     </div>
                   </div>
                 ))}

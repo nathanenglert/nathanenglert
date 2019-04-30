@@ -171,7 +171,7 @@ const IndexPage = ({ data }) => {
                       {post.type !== 'quote' && <Link to={post.slug}>Read more.</Link>}
                     </div>
                     <div className="article-footer">
-                      <time className="is-size-7 has-text-grey" dateTime="{post.publishDate}">{post.publishDate}</time>
+                      <time className="is-size-7 has-text-grey-dark" dateTime="{post.publishDate}">{post.publishDate}</time>
                     </div>
                   </div>
                 </div>              
