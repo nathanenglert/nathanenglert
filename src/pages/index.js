@@ -106,7 +106,7 @@ const IndexPage = ({ data }) => {
                 <div className="column level-item">
                   <div className="box">
                     <h3 className="subtitle">
-                      <Link to="/apps/customizer/">Customizer</Link>
+                      <a href="https://nathanenglert.com/apps/customizer/" title="Customizer">Customizer</a>
                     </h3>
                     <p className="content">
                       A user interface for designing a custom product out of a set of available options.
@@ -126,7 +126,7 @@ const IndexPage = ({ data }) => {
                 <div className="column level-item">
                   <div className="box">
                     <h3 className="subtitle">
-                      <Link to="/apps/kaslo/">KASLO</Link>
+                      <a href="https://nathanenglert.com/apps/kaslo/" title="KASLO">KASLO</a>
                     </h3>
                     <p className="content">
                       A tool that helps calculate options for paying off student loan debt.

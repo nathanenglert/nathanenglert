@@ -32,7 +32,7 @@ const Apps = () => {
                   When it comes to personal finance, I suck. <a href="http://iwillteachyoutoberich.com/" target="_blank" rel="noopener noreferrer">Ramit’s course</a> 
                   &nbsp;on it really got me thinking about how I can (and should) change my ways. One morning, I decided to get my student loans in 
                   order and figure out a plan to pay them off ASAP. Googling for a student loan calculator turns up a bunch of tools that didn’t 
-                  really do the job I was looking for. So as any nerd would do, <Link to="/apps/kaslo/">I built my own.</Link>
+                  really do the job I was looking for. So as any nerd would do, <a href="https://nathanenglert.com/apps/kaslo/" title="KASLO">I built my own.</a>
                 </p>
               </div>
               <div className="blog-footer has-text-centered">
