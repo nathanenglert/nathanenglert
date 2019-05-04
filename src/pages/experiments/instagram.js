@@ -41,6 +41,19 @@ class Instagram extends React.Component {
             </div>
           </div>
         </section>
+        <section class="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column">
+                <h3 className="is-size-6 has-text-weight-bold">Inspiration and References</h3>
+                <ul className="is-size-7">
+                  <li><a href="https://codepen.io/luisdeanda/pen/zePRmR?page=2">Photo Text Background</a> by design.the.web</li>
+                  <li><a href="https://speckyboy.com/css-svg-canvas-masks/">10 Amazing Examples of CSS, SVG &amp; Canvas Masks In Action</a> by Jake Rocheleau</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
       </Layout>
     );
   }
