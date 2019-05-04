@@ -1,0 +1,50 @@
+$height-mask: 100%;
+
+// To regulate alpha is recommended to use gray scale.
+// Recomiendo utilizar escala de grises
+
+$darken: 0%;
+
+$color: rgb(255,255,255);
+$color-alpha: darken( $color, $darken );
+$color-base: rgb(245, 245, 245);
+
+.photo-stream {
+  position:relative;
+
+  .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $height-mask;
+    z-index: 10;
+  }
+
+  svg {
+    width: 100%;
+    height: inherit;
+
+    text {
+      // svg center text.
+      // centar text svg.
+      text-anchor: middle;
+    }
+    #alpha {
+      fill: $color-alpha;
+      //animation: alpha 10s ease infinite;
+    }
+    #title {
+      font-size: 26em;
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      text-transform: uppercase;
+    }
+    #base {
+      fill: $color-base;
+      // add the mask.
+      // aplicar máscara.
+      mask: url(#mask);
+    }
+  }
+}

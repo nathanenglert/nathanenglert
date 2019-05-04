@@ -77,6 +77,12 @@ module.exports = {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACEID,
         accessToken: process.env.GATSBY_CONTENTFUL_TOKEN
       }
+		},
+		{
+			resolve: `gatsby-source-instagram`,
+			options: {
+				username: `nathanenglert`,
+			},
 		},		
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.app/offline
