@@ -1,3 +1,5 @@
+var createReactClass = require('create-react-class');
+
 const TYPE_WALL = 1;
 const TYPE_FLOOR = 0;
 
@@ -60,27 +62,36 @@ const initialiseMap = (width, height, options) => {
   return map;
 }
 
-exports.generate = (width, height, options, drawFn) => {
-  let map = initialiseMap(width, height, options);
-  let i = 0;
-
-  let interval = setInterval(function () {
-    map = doSimulationStep(map, width, height, options);
-
-    let flatten = map.reduce((acc, val) => acc.concat(val), []);
-    drawFn(flatten);
-
-    i += 1;
+const CellularAutomata = createReactClass({
+  statics: {
+    generate: (width, height, options, drawFn) => {
+      let map = initialiseMap(width, height, options);
+      let i = 0;
     
-    if (i === options.NUMBER_OF_STEPS)
-      clearInterval(interval);
-  }, options.DRAW_SPEED)
-
-  // for (var i = 0; i < options.NUMBER_OF_STEPS; i++)
-  // {
+      let interval = setInterval(function () {
+        map = doSimulationStep(map, width, height, options);
     
-  // }
+        let flatten = map.reduce((acc, val) => acc.concat(val), []);
+        drawFn(flatten);
+    
+        i += 1;
+        
+        if (i === options.NUMBER_OF_STEPS)
+          clearInterval(interval);
+      }, options.DRAW_SPEED)
+    
+      // for (var i = 0; i < options.NUMBER_OF_STEPS; i++)
+      // {
+        
+      // }
+    
+      // var flatten = map.reduce((acc, val) => acc.concat(val), []);
+      // return flatten;
+    }
+  },
+  render () {
+    return ;
+  }
+});
 
-  // var flatten = map.reduce((acc, val) => acc.concat(val), []);
-  // return flatten;
-}
+export default CellularAutomata;
