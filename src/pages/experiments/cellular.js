@@ -2,14 +2,11 @@ import React from 'react';
 
 import './cellular.scss';
 
-import CanvasRender from './canvasRender';
 import CellularAutomata from './cellularAutomata';
 
 class Cellular extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
-
-    this._canvas = React.createRef();
 
     this.config = {
       options: {
@@ -20,29 +17,94 @@ class Cellular extends React.Component {
         NUMBER_OF_STEPS: 5 // the number of times we perform the simulation step
       },
       scale: 64
+    }    
+
+    this.state = {
+      height: 1,
+      width: 1
     }
-
-    this.config.height = Math.floor(window.innerHeight / this.config.scale)+1;
-    this.config.width = Math.floor(window.innerWidth / this.config.scale)+1;
   }
 
-  componentDidMount () {
-    this.generateMap();
+  componentDidMount () {    
+    const h = Math.floor(window.innerHeight / this.config.scale)+1;
+    const w = Math.floor(window.innerWidth / this.config.scale)+1;
+
+    this.setState({
+      height: h,
+      width: w,
+      canvasStyle: {
+        height: (h*this.config.scale) + 'px',
+        width: (w*this.config.scale) + 'px',
+      }
+    })
+
+    this.generateMap(h, w);
   }
 
-  generateMap () {
-    CellularAutomata.generate(this.config.width, this.config.height, this.config.options, this._canvas.current.drawMap);      
+  drawMap = map => {
+    let x = 0;
+    let y = 0;
+    const ctx = this.refs.canvas.getContext('2d');
+  
+    for (let i = 0; i < map.length; i += 1) {        
+      this.drawPosition(ctx, map[i], x, y)
+  
+      x += 1;
+  
+      if (x === this.state.width) {
+        x = 0;
+        y += 1;
+      }
+    }
+  }
+
+  drawPosition = (ctx, pos, x, y) => {
+    var color = [];
+  
+    switch (pos) {
+      case 0:
+        color = [255, 255, 255, 255];
+        break;
+      case 1:
+        color = [0, 0, 0, 255];
+        break;
+      case 10:
+        color = [0, 255, 0, 255]
+        break;
+      case 20:
+        color = [255, 0, 0, 255]
+        break;
+      default:
+        color = [255, 255, 255, 255];
+        break;
+    }
+  
+    this.sendToCanvas(ctx, color, 1, 1, x, y);
+  }
+  
+  sendToCanvas = (ctx, pixels, height, width, x, y) => {
+    const array = new Uint8ClampedArray(pixels);
+    const image = new ImageData(array, width, height);
+  
+    x = parseInt(x);
+    y = parseInt(y);
+    
+    ctx.putImageData(image, x, y);        
+  }
+
+  generateMap (h, w) {
+    CellularAutomata.generate(h, w, this.config.options, this.drawMap);      
   }
 
   render () {
     return (
-      <div id="app">
-          <CanvasRender 
-            ref={this._canvas}
-            height={this.config.height}
-            scale={this.config.scale}
-            width={this.config.width}>
-          </CanvasRender>  
+      <div id="app"> 
+          <canvas 
+            ref="canvas"
+            height={this.state.height}
+            width={this.state.width}
+            style={this.state.canvasStyle}>
+          </canvas> 
       </div>    
     )
   }
