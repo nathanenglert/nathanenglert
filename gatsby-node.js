@@ -38,3 +38,18 @@ exports.createPages = ({ graphql, actions }) => {
       console.log("Error retrieving contentful data", error);
     });
 };
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /css-doodle/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+};
