@@ -28,7 +28,7 @@
   text-decoration: line-through;
 }
 
-.hero {  
+.hero {
   .dud {
     color: #757575;
   }
@@ -53,6 +53,17 @@ h3.blog-date {
   margin-bottom: 20px;
 }
 
+.blog-content h2 {
+  font-weight: bold;
+  font-size: 120%;
+}
+
+.blog-content blockquote {
+  border-left: solid 6px hsl(0, 0%, 86%);
+  padding-left: 16px;
+  margin-bottom: 24px;
+}
+
 .blog-footer {
   border-top: solid 1px hsl(0, 0%, 86%);
   margin-top: 80px;
@@ -70,7 +81,7 @@ h3.blog-date {
   .blog-author,
   .blog-date {
     position: absolute;
-    top: -24px;    
+    top: -24px;
   }
 
   .blog-author {
