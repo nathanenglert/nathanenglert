@@ -5,6 +5,7 @@
 	"author": "Aman Mittal <amandeepmittal@live.com>",
 	"dependencies": {
 		"bulma": "^0.7.4",
+		"css-doodle": "^0.7.0",
 		"gatsby": "^2.4.2",
 		"gatsby-image": "^2.0.35",
 		"gatsby-plugin-google-analytics": "^2.0.18",
