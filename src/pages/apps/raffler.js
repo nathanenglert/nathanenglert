@@ -437,7 +437,7 @@ class Raffler extends React.Component {
                                             className="input"
                                             type="text"
                                             name="name"
-                                            placeholder="e.g. Alex Smith"
+                                            placeholder="e.g. Nathan Englert"
                                             onChange={this.handleFeedbackChange}
                                         />
                                     </div>
@@ -452,7 +452,7 @@ class Raffler extends React.Component {
                                             className="input"
                                             type="email"
                                             name="email"
-                                            placeholder="e.g. alexsmith@gmail.com"
+                                            placeholder="e.g. nenglert@gmail.com"
                                             onChange={this.handleFeedbackChange}
                                         />
                                     </div>
