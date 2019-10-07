@@ -60,9 +60,14 @@ class Raffler extends React.Component {
     }
 
     handleFeedbackChange(e) {
-        this.setState({
-            ...this.state.feedback,
-            [e.target.name]: e.target.value
+        const name = e.target.name;
+        const value = e.target.value;
+
+        this.setState(state => {
+            let feedback = state.feedback;
+            feedback = { ...feedback, [name]: value };
+
+            return { feedback };
         });
     }
 
@@ -392,7 +397,7 @@ class Raffler extends React.Component {
                                         <label className="radio">
                                             <input
                                                 type="radio"
-                                                name="question"
+                                                name="wouldPay"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
@@ -402,7 +407,7 @@ class Raffler extends React.Component {
                                         <label className="radio">
                                             <input
                                                 type="radio"
-                                                name="question"
+                                                name="wouldPay"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
