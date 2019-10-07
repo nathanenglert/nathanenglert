@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Sriracha');
 
 .is-raffler-branded {
-  font-family: 'Sriracha', cursive !important;
+    font-family: 'Sriracha', cursive !important;
 }
 
 .input.amount {
-  max-width: 80px;
+    max-width: 80px;
+}
+
+.text-between-buttons {
+    display: inline-flex;
+    height: 2.25em;
+    line-height: 1.5;
+    padding-bottom: calc(0.375em - 1px);
+    padding-top: calc(0.375em - 1px);
 }
