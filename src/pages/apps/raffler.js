@@ -16,9 +16,12 @@ function encode(data) {
 class Raffler extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
+            donationSubmitted: false,
             feedback: {},
             feedbackOpen: false,
+            feedbackSubmitted: false,
             rafflers: [
                 {
                     name: '',
@@ -31,10 +34,11 @@ class Raffler extends React.Component {
 
         this.addRaffler = this.addRaffler.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        this.openModal = this.openModal.bind(this);
-        this.pickWinner = this.pickWinner.bind(this);
         this.handleFeedbackChange = this.handleFeedbackChange.bind(this);
         this.handleFeedbackSubmit = this.handleFeedbackSubmit.bind(this);
+        this.onDonationClick = this.onDonationClick.bind(this);
+        this.openModal = this.openModal.bind(this);
+        this.pickWinner = this.pickWinner.bind(this);
     }
 
     addRaffler() {
@@ -50,7 +54,7 @@ class Raffler extends React.Component {
     closeModal(e) {
         if (e) e.preventDefault();
 
-        this.setState({ ...this.state, feedbackOpen: false });
+        this.setState({ feedbackOpen: false });
     }
 
     getRandomIntInclusive(min, max) {
@@ -60,12 +64,11 @@ class Raffler extends React.Component {
     }
 
     handleFeedbackChange(e) {
-        const name = e.target.name;
-        const value = e.target.value;
+        const input = e.target;
 
         this.setState(state => {
             let feedback = state.feedback;
-            feedback = { ...feedback, [name]: value };
+            feedback = { ...feedback, [input.name]: input.value };
 
             return { feedback };
         });
@@ -85,6 +88,7 @@ class Raffler extends React.Component {
             })
         });
 
+        this.setState({ feedbackSubmitted: true });
         this.closeModal();
     }
 
@@ -119,8 +123,12 @@ class Raffler extends React.Component {
         this.addRaffler();
     }
 
+    onDonationClick() {
+        this.setState({ donationSubmitted: true });
+    }
+
     openModal() {
-        this.setState({ ...this.state, feedbackOpen: true });
+        this.setState({ feedbackOpen: true });
     }
 
     pickWinner() {
@@ -214,11 +222,12 @@ class Raffler extends React.Component {
                                 </p>
                                 <p className="content has-text-grey">
                                     P.S.
-                                    <br />I hate ads and I know you do too..
-                                    Instead, if you have a dollar or two laying
-                                    around, I'd appreciate the donation to keep
-                                    this site online! You can also help by
-                                    leaving some feedback below! 👇
+                                    <br />
+                                    {this.state.donationSubmitted
+                                        ? 'Thanks for the donation! I really appreciate it.'
+                                        : this.state.feedbackSubmitted
+                                        ? 'Thanks for the feedback!'
+                                        : "I hate ads and I know you do too.. Instead, if you have a dollar or two laying around, I'd appreciate the donation to keep this site online! You can also help by leaving some feedback below! 👇"}
                                 </p>
                                 <p className="content">
                                     <a
@@ -226,6 +235,7 @@ class Raffler extends React.Component {
                                         className="button"
                                         target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={this.onDonationClick}
                                     >
                                         Donate with PayPal
                                     </a>
@@ -398,6 +408,7 @@ class Raffler extends React.Component {
                                             <input
                                                 type="radio"
                                                 name="wouldPay"
+                                                value="yes"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
@@ -408,6 +419,7 @@ class Raffler extends React.Component {
                                             <input
                                                 type="radio"
                                                 name="wouldPay"
+                                                value="no"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
