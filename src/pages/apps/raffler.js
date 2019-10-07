@@ -71,7 +71,7 @@ class Raffler extends React.Component {
 
         const form = e.target;
 
-        fetch('/', {
+        fetch('/apps/raffler', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encode({
@@ -338,7 +338,6 @@ class Raffler extends React.Component {
                             <form
                                 name="raffler"
                                 method="post"
-                                action="/thanks/"
                                 data-netlify="true"
                                 data-netlify-honeypot="bot-field"
                                 onSubmit={this.handleFeedbackSubmit}
