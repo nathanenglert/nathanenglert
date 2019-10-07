@@ -331,143 +331,134 @@ class Raffler extends React.Component {
                         </div>
                     </div>
                 </section>
-                {this.state.feedbackOpen && (
-                    <div className="modal is-active">
-                        <div className="modal-background" />
-                        <div className="modal-card">
-                            <form
-                                name="raffler"
-                                method="post"
-                                data-netlify="true"
-                                data-netlify-honeypot="bot-field"
-                                onSubmit={this.handleFeedbackSubmit}
-                            >
-                                <header className="modal-card-head">
-                                    <p className="modal-card-title">Feedback</p>
-                                    <button
-                                        className="delete"
-                                        aria-label="close"
-                                        onClick={this.closeModal}
-                                    />
-                                </header>
-                                <section className="modal-card-body">
-                                    <input
-                                        type="hidden"
-                                        name="form-name"
-                                        value="raffler"
-                                    />
-                                    <div className="field" hidden>
-                                        <label className="label">
-                                            Don’t fill this field out
-                                        </label>
-                                        <div className="control">
+                <div
+                    className={
+                        'modal ' + (this.state.feedbackOpen ? 'is-active' : '')
+                    }
+                >
+                    <div className="modal-background" />
+                    <div className="modal-card">
+                        <form
+                            name="raffler"
+                            method="post"
+                            data-netlify="true"
+                            data-netlify-honeypot="bot-field"
+                            onSubmit={this.handleFeedbackSubmit}
+                        >
+                            <header className="modal-card-head">
+                                <p className="modal-card-title">Feedback</p>
+                                <button
+                                    className="delete"
+                                    aria-label="close"
+                                    onClick={this.closeModal}
+                                />
+                            </header>
+                            <section className="modal-card-body">
+                                <input
+                                    type="hidden"
+                                    name="form-name"
+                                    value="raffler"
+                                />
+                                <div className="field" hidden>
+                                    <label className="label">
+                                        Don’t fill this field out
+                                    </label>
+                                    <div className="control">
+                                        <input
+                                            name="bot-field"
+                                            onChange={this.handleFeedbackChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="field">
+                                    <label className="label">
+                                        How could I make Raffler more useful?
+                                    </label>
+                                    <div className="control">
+                                        <textarea
+                                            className="textarea"
+                                            name="comments"
+                                            placeholder="e.g. It would be cool if.."
+                                            onChange={this.handleFeedbackChange}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="field">
+                                    <label className="label">
+                                        Would you pay a small amount to use that
+                                        feature?
+                                    </label>
+                                    <div className="control">
+                                        <label className="radio">
                                             <input
-                                                name="bot-field"
+                                                type="radio"
+                                                name="question"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">
-                                            How could I make Raffler more
-                                            useful?
+                                            />{' '}
+                                            Yes
                                         </label>
-                                        <div className="control">
-                                            <textarea
-                                                className="textarea"
-                                                name="comments"
-                                                placeholder="e.g. It would be cool if.."
-                                                onChange={
-                                                    this.handleFeedbackChange
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">
-                                            Would you pay a small amount to use
-                                            that feature?
-                                        </label>
-                                        <div className="control">
-                                            <label className="radio">
-                                                <input
-                                                    type="radio"
-                                                    name="question"
-                                                    onChange={
-                                                        this
-                                                            .handleFeedbackChange
-                                                    }
-                                                />{' '}
-                                                Yes
-                                            </label>
-                                            <label className="radio">
-                                                <input
-                                                    type="radio"
-                                                    name="question"
-                                                    onChange={
-                                                        this
-                                                            .handleFeedbackChange
-                                                    }
-                                                />{' '}
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">
-                                            What's your name?
-                                        </label>
-                                        <div className="control">
+                                        <label className="radio">
                                             <input
-                                                className="input"
-                                                type="text"
-                                                name="name"
-                                                placeholder="e.g. Alex Smith"
+                                                type="radio"
+                                                name="question"
                                                 onChange={
                                                     this.handleFeedbackChange
                                                 }
-                                            />
-                                        </div>
-                                        <p className="help">Optional</p>
-                                    </div>
-                                    <div className="field">
-                                        <label className="label">
-                                            What's your email address?
+                                            />{' '}
+                                            No
                                         </label>
-                                        <div className="control">
-                                            <input
-                                                className="input"
-                                                type="email"
-                                                name="email"
-                                                placeholder="e.g. alexsmith@gmail.com"
-                                                onChange={
-                                                    this.handleFeedbackChange
-                                                }
-                                            />
-                                        </div>
-                                        <p className="help">Optional</p>
                                     </div>
-                                </section>
-                                <footer className="modal-card-foot">
-                                    <button
-                                        type="submit"
-                                        className="button is-info"
-                                    >
-                                        Send
-                                    </button>
-                                    <button
-                                        className="button"
-                                        onClick={this.closeModal}
-                                    >
-                                        Cancel
-                                    </button>
-                                </footer>
-                            </form>
-                        </div>
+                                </div>
+                                <div className="field">
+                                    <label className="label">
+                                        What's your name?
+                                    </label>
+                                    <div className="control">
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            name="name"
+                                            placeholder="e.g. Alex Smith"
+                                            onChange={this.handleFeedbackChange}
+                                        />
+                                    </div>
+                                    <p className="help">Optional</p>
+                                </div>
+                                <div className="field">
+                                    <label className="label">
+                                        What's your email address?
+                                    </label>
+                                    <div className="control">
+                                        <input
+                                            className="input"
+                                            type="email"
+                                            name="email"
+                                            placeholder="e.g. alexsmith@gmail.com"
+                                            onChange={this.handleFeedbackChange}
+                                        />
+                                    </div>
+                                    <p className="help">Optional</p>
+                                </div>
+                            </section>
+                            <footer className="modal-card-foot">
+                                <button
+                                    type="submit"
+                                    className="button is-info"
+                                >
+                                    Send
+                                </button>
+                                <button
+                                    className="button"
+                                    onClick={this.closeModal}
+                                >
+                                    Cancel
+                                </button>
+                            </footer>
+                        </form>
                     </div>
-                )}
+                </div>
             </Layout>
         );
     }
