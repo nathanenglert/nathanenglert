@@ -1,53 +1,54 @@
 {
-	"name": "gatsby-bulma-quickstart",
-	"description": "A Project to bootstrap your next Gatsby + Bulma site.",
-	"version": "1.5.1",
-	"author": "Aman Mittal <amandeepmittal@live.com>",
-	"dependencies": {
-		"bulma": "^0.7.4",
-		"css-doodle": "^0.7.0",
-		"gatsby": "^2.4.2",
-		"gatsby-image": "^2.0.35",
-		"gatsby-plugin-google-analytics": "^2.0.18",
-		"gatsby-plugin-manifest": "^2.0.25",
-		"gatsby-plugin-offline": "^2.0.25",
-		"gatsby-plugin-react-helmet": "^3.0.11",
-		"gatsby-plugin-sass": "^2.0.11",
-		"gatsby-plugin-sharp": "^2.0.32",
-		"gatsby-plugin-sitemap": "^2.0.11",
-		"gatsby-remark-default-html-attrs": "^1.0.0",
-		"gatsby-source-contentful": "^2.0.52",
-		"gatsby-source-filesystem": "^2.0.28",
-		"gatsby-source-instagram": "^0.5.0",
-		"gatsby-transformer-remark": "^2.3.11",
-		"gatsby-transformer-sharp": "^2.1.17",
-		"node-sass": "^4.12.0",
-		"react": "^16.8.4",
-		"react-dom": "^16.8.4",
-		"react-helmet": "^5.2.0",
-		"react-icons": "^3.5.0"
-	},
-	"keywords": [
-		"gatsby",
-		"bulma",
-		"starter",
-		"kit",
-		"template"
-	],
-	"license": "MIT",
-	"scripts": {
-		"build": "gatsby build",
-		"develop": "gatsby develop",
-		"start": "npm run develop",
-		"format": "prettier --write \"src/**/*.js\"",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"devDependencies": {
-		"create-react-class": "^15.6.3",
-		"prettier": "^1.14.2"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/amandeepmittal/gatsby-bulma-quickstart"
-	}
+    "name": "gatsby-bulma-quickstart",
+    "description": "A Project to bootstrap your next Gatsby + Bulma site.",
+    "version": "1.5.1",
+    "author": "Aman Mittal <amandeepmittal@live.com>",
+    "dependencies": {
+        "bulma": "^0.7.4",
+        "css-doodle": "^0.7.0",
+        "gatsby": "^2.4.2",
+        "gatsby-image": "^2.0.35",
+        "gatsby-plugin-google-analytics": "^2.0.18",
+        "gatsby-plugin-manifest": "^2.0.25",
+        "gatsby-plugin-offline": "^2.0.25",
+        "gatsby-plugin-react-helmet": "^3.0.11",
+        "gatsby-plugin-sass": "^2.0.11",
+        "gatsby-plugin-sharp": "^2.0.32",
+        "gatsby-plugin-sitemap": "^2.0.11",
+        "gatsby-remark-default-html-attrs": "^1.0.0",
+        "gatsby-source-contentful": "^2.0.52",
+        "gatsby-source-filesystem": "^2.0.28",
+        "gatsby-source-instagram": "^0.5.0",
+        "gatsby-transformer-remark": "^2.3.11",
+        "gatsby-transformer-sharp": "^2.1.17",
+        "mapbox-gl": "^1.4.1",
+        "node-sass": "^4.12.0",
+        "react": "^16.8.4",
+        "react-dom": "^16.8.4",
+        "react-helmet": "^5.2.0",
+        "react-icons": "^3.5.0"
+    },
+    "keywords": [
+        "gatsby",
+        "bulma",
+        "starter",
+        "kit",
+        "template"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "start": "npm run develop",
+        "format": "prettier --write \"src/**/*.js\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "create-react-class": "^15.6.3",
+        "prettier": "^1.14.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/amandeepmittal/gatsby-bulma-quickstart"
+    }
 }
