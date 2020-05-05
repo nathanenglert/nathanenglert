@@ -115,6 +115,9 @@ export const query = graphql`
         bulma
         twitter
         github
+        linkedin
+        devto
+        instagram
       }
     },
     allContentfulBlogPost(limit: 5, sort: { fields: publishDate, order: DESC }) {
