@@ -10,7 +10,11 @@ const BlogFooter = ({ publishDate }) => (
     Written by <a href="/">Nathan Englert</a> on{' '}
     <time label={publishDate}>{publishDate}</time>
     <p className="content">
-      I am a technology evangelist who specializes in API development.
+      I am a technology evangelist who specializes in API development. In my
+      spare time, I like to <a href="/apps">build things</a> and contribute to{' '}
+      <a href="https://dev.to/nathanenglert">DEV</a>. You can also find me on{' '}
+      <a href="https://twitter.com/nathanenglert">Twitter</a> and{' '}
+      <a href="https://www.linkedin.com/in/nathan-englert/">LinkedIn</a>.
     </p>
   </div>
 );
