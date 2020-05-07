@@ -10,18 +10,22 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: 'Nathan Englert',
+    titleTemplate: '%s - Nathan Englert',
     author: 'Nathan Englert',
-    imageUrl: 'https://i.imgur.com/Vz81GEl.png',
-    description: 'A Project to bootstrap your next Gatsby + Bulma site.',
-    keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, Seo, Starter`,
-    twitter: 'https://twitter.com/nathanenglert',
+    description: "A place for Nathan's projects, writings, and experiences.",
+    imageUrl: '/images/seo-image.png',
+    keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, CSharp, API, API Developer, Leader, Technology`,
+    siteUrl: `https://nathanenglert.com`,
+
+    bulma: 'https://bulma.io/',
+    gatsby: 'https://www.gatsbyjs.org/',
+
     devto: 'https://dev.to/nathanenglert',
     github: `https://github.com/nathanenglert`,
     instagram: 'https://www.instagram.com/nathanenglert/',
     linkedin: 'https://www.linkedin.com/in/nathan-englert/',
-    gatsby: 'https://www.gatsbyjs.org/',
-    bulma: 'https://bulma.io/',
-    siteUrl: `https://nathanenglert.com`,
+    twitter: 'https://twitter.com/nathanenglert',
+    twitterUsername: '@nathanenglert',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -1,13 +1,19 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
+import BlogFooter from '../components/blogFooter';
 import Layout from '../components/layout';
 import NavBar from '../components/navbar';
-import BlogFooter from '../components/blogFooter';
+import SEO from '../components/seo';
 
 const Apps = () => {
   return (
     <Layout>
+      <SEO
+        title="Apps and other work - Nathan Englert"
+        description="A few simple applications that Nathan has built in his spare time."
+        location="/apps"
+      />
       <NavBar />
       <section className="section">
         <div className="container">

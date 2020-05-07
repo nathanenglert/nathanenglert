@@ -3,12 +3,14 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import ProfileImage from '../images/profile.jpg';
+import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.edges;
 
   return (
     <Layout>
+      <SEO location="/" />
       <section className="section">
         <div className="container">
           <div className="columns">
