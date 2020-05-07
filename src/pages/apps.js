@@ -10,7 +10,7 @@ const Apps = () => {
   return (
     <Layout>
       <SEO
-        title="Apps and other work - Nathan Englert"
+        title="Apps and other work"
         description="A few simple applications that Nathan has built in his spare time."
         location="/apps"
       />
