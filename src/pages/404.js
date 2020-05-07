@@ -9,11 +9,7 @@ const NotFoundPage = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.edges;
   return (
     <Layout>
-      <SEO
-        title="404 - Nathan Englert"
-        description="How'd you get here?"
-        location="/404"
-      />
+      <SEO title="404" description="How'd you get here?" location="/404" />
       <NavBar />
       <section className="section">
         <div className="container">

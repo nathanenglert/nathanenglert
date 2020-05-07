@@ -15,12 +15,13 @@ const SEO = ({ location, title, description, image, article }) => {
   } = site.siteMetadata;
   const seo = {
     title: title || defaultTitle,
+    titleTemplate: title == null ? '' : titleTemplate,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${location}`,
   };
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}

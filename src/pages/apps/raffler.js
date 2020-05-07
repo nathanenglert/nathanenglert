@@ -184,7 +184,7 @@ class Raffler extends React.Component {
     return (
       <Layout>
         <SEO
-          title="Raffler - Nathan Englert"
+          title="Raffler"
           description="Raffler can be used to simulate any raffle or sweepstakes drawing."
           location="/apps/raffler"
         />
