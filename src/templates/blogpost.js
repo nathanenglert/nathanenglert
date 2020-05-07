@@ -1,14 +1,21 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import BlogFooter from '../components/blogFooter';
 import Layout from '../components/layout';
 import NavBar from '../components/navbar';
-import BlogFooter from '../components/blogFooter';
+import SEO from '../components/seo';
 
 const BlogPost = ({ data }) => {
-  const { title, publishDate, body } = data.contentfulBlogPost;
+  const { title, slug, publishDate, body } = data.contentfulBlogPost;
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={body.childMarkdownRemark.excerpt}
+        location={slug}
+        article
+      />
       <NavBar />
       <section className="section">
         <div className="container">
@@ -47,6 +54,7 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+          excerpt(pruneLength: 260)
         }
       }
       tags
