@@ -56,6 +56,45 @@ class Raffler extends React.Component {
     this.setState({ feedbackOpen: false });
   }
 
+  contentForBetaSignup() {
+    return (
+      <section className="modal-card-body">
+        <p class="content">
+          I promise not to spam you or share your email address with anyone
+          else. By signing up, you will receive updates on the progress of
+          Raffler Pro and the opportunity to join the beta.
+        </p>
+        <input type="hidden" name="form-name" value="raffler-pro-beta" />
+        <div className="field" hidden>
+          <label className="label">Don’t fill this field out</label>
+          <div className="control">
+            <input name="bot-field" onChange={this.handleFeedbackChange} />
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">What's your email address?</label>
+          <div className="control">
+            <input
+              className="input"
+              type="email"
+              name="email"
+              placeholder="e.g. nenglert@gmail.com"
+              onChange={this.handleFeedbackChange}
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  contentForBetaThankYou() {
+    return (
+      <section className="modal-card-body">
+        <p class="content">Thanks! You're on the list.</p>
+      </section>
+    );
+  }
+
   getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -88,7 +127,6 @@ class Raffler extends React.Component {
     });
 
     this.setState({ feedbackSubmitted: true });
-    this.closeModal();
   }
 
   handleChange(i, event) {
@@ -223,9 +261,7 @@ class Raffler extends React.Component {
                   <br />
                   {this.state.donationSubmitted
                     ? 'Thanks for the donation! I really appreciate it.'
-                    : this.state.feedbackSubmitted
-                      ? 'Thanks for the feedback!'
-                      : "I hate ads and I know you do too.. Instead, if you have a dollar or two laying around, I'd appreciate the donation to keep this site online! You can also help by leaving some feedback below! 👇"}
+                    : "I hate ads and I know you do too.. Instead, if you have a dollar or two laying around, I'd appreciate the donation to keep this site online!"}
                 </p>
                 <p className="content">
                   <a
@@ -237,11 +273,30 @@ class Raffler extends React.Component {
                   >
                     Donate with PayPal
                   </a>
-                  <span className="text-between-buttons">&nbsp;or&nbsp;</span>
-                  <button className="button" onClick={this.openModal}>
-                    Leave some feedback
+                </p>
+                <br />
+                <h2 className="subtitle">
+                  <strong>Raffler Pro</strong> is coming!{' '}
+                  <span className="tag is-info">NEW</span>
+                </h2>
+                <p className="content">
+                  For a small monthly payment, you'll get access to all sorts of
+                  features like:
+                  <ul>
+                    <li>Saving lists for later</li>
+                    <li>Importing and exporting lists</li>
+                    <li>Facebook and Twitter integration</li>
+                    <li>Personal branding</li>
+                    <li>Presentation view</li>
+                    <li>And more!</li>
+                  </ul>
+                </p>
+                <p className="content">
+                  <button className="button is-info" onClick={this.openModal}>
+                    Get notified of the beta!
                   </button>
                 </p>
+                <br />
               </div>
               <div className="column is-3">
                 {this.state.rafflers.map((raffler, i) => (
@@ -333,103 +388,39 @@ class Raffler extends React.Component {
           <div className="modal-background" />
           <div className="modal-card">
             <form
-              name="raffler"
+              name="raffler-pro-beta"
               method="post"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={this.handleFeedbackSubmit}
             >
               <header className="modal-card-head">
-                <p className="modal-card-title">Feedback</p>
+                <p className="modal-card-title">Beta Signup</p>
                 <button
                   className="delete"
                   aria-label="close"
                   onClick={this.closeModal}
                 />
               </header>
-              <section className="modal-card-body">
-                <input type="hidden" name="form-name" value="raffler" />
-                <div className="field" hidden>
-                  <label className="label">Don’t fill this field out</label>
-                  <div className="control">
-                    <input
-                      name="bot-field"
-                      onChange={this.handleFeedbackChange}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label">
-                    How could I make Raffler more useful?
-                  </label>
-                  <div className="control">
-                    <textarea
-                      className="textarea"
-                      name="comments"
-                      placeholder="e.g. It would be cool if.."
-                      onChange={this.handleFeedbackChange}
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label">
-                    Would you pay a small amount to use that feature?
-                  </label>
-                  <div className="control">
-                    <label className="radio">
-                      <input
-                        type="radio"
-                        name="wouldPay"
-                        value="yes"
-                        onChange={this.handleFeedbackChange}
-                      />{' '}
-                      Yes
-                    </label>
-                    <label className="radio">
-                      <input
-                        type="radio"
-                        name="wouldPay"
-                        value="no"
-                        onChange={this.handleFeedbackChange}
-                      />{' '}
-                      No
-                    </label>
-                  </div>
-                </div>
-                <div className="field">
-                  <label className="label">What's your name?</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      name="name"
-                      placeholder="e.g. Nathan Englert"
-                      onChange={this.handleFeedbackChange}
-                    />
-                  </div>
-                  <p className="help">Optional</p>
-                </div>
-                <div className="field">
-                  <label className="label">What's your email address?</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="email"
-                      name="email"
-                      placeholder="e.g. nenglert@gmail.com"
-                      onChange={this.handleFeedbackChange}
-                    />
-                  </div>
-                  <p className="help">Optional</p>
-                </div>
-              </section>
+              {this.state.feedbackSubmitted
+                ? this.contentForBetaThankYou()
+                : this.contentForBetaSignup()}
+
               <footer className="modal-card-foot">
-                <button type="submit" className="button is-info">
-                  Send
-                </button>
-                <button className="button" onClick={this.closeModal}>
-                  Cancel
-                </button>
+                {this.state.feedbackSubmitted ? (
+                  <button className="button is-info" onClick={this.closeModal}>
+                    Close
+                  </button>
+                ) : (
+                  <button type="submit" className="button is-info">
+                    Send
+                  </button>
+                )}
+                {!this.state.feedbackSubmitted && (
+                  <button className="button" onClick={this.closeModal}>
+                    Cancel
+                  </button>
+                )}
               </footer>
             </form>
           </div>
