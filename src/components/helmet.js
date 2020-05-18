@@ -40,10 +40,10 @@ export default () => (
           data-id="nathanenglert"
           data-description="Support me on Buy me a coffee!"
           data-message="Thank you for visiting. You can now buy me a coffee!"
-          data-color="#79D6B5"
+          data-color="#cbf3f9"
           data-position="right"
-          data-x_margin="18"
-          data-y_margin="18"
+          data-x_margin="32"
+          data-y_margin="32"
         />
       </Helmet>
     )}
