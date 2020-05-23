@@ -256,24 +256,6 @@ class Raffler extends React.Component {
                   the higher the amount of tickets are for a contestant, the
                   higher their chances are of winning!
                 </p>
-                <p className="content has-text-grey">
-                  P.S.
-                  <br />
-                  {this.state.donationSubmitted
-                    ? 'Thanks for the donation! I really appreciate it.'
-                    : "I hate ads and I know you do too.. Instead, if you have a dollar or two laying around, I'd appreciate the donation to keep this site online!"}
-                </p>
-                <p className="content">
-                  <a
-                    href="https://paypal.me/nathanenglert"
-                    className="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={this.onDonationClick}
-                  >
-                    Donate with PayPal
-                  </a>
-                </p>
                 <br />
                 <h2 className="subtitle">
                   <strong>Raffler Pro</strong> is coming!{' '}
