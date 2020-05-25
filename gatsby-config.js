@@ -1,34 +1,34 @@
 let activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'development';
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
 console.log(`Using environment config: '${activeEnv}'`);
 
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
 
 module.exports = {
   siteMetadata: {
-    title: 'Nathan Englert',
-    titleTemplate: '%s - Nathan Englert',
-    author: 'Nathan Englert',
+    title: "Nathan Englert",
+    titleTemplate: "%s - Nathan Englert",
+    author: "Nathan Englert",
     description: "A place for Nathan's projects, writings, and experiences.",
-    imageUrl: '/images/seo-image.png',
+    imageUrl: "/images/seo-image.png",
     keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, CSharp, API, API Developer, Leader, Technology`,
     siteUrl: `https://nathanenglert.com`,
 
-    bulma: 'https://bulma.io/',
-    gatsby: 'https://www.gatsbyjs.org/',
+    bulma: "https://bulma.io/",
+    gatsby: "https://www.gatsbyjs.org/",
 
-    devto: 'https://dev.to/nathanenglert',
+    devto: "https://dev.to/nathanenglert",
     github: `https://github.com/nathanenglert`,
-    instagram: 'https://www.instagram.com/nathanenglert/',
-    linkedin: 'https://www.linkedin.com/in/nathan-englert/',
-    twitter: 'https://twitter.com/nathanenglert',
-    twitterUsername: '@nathanenglert',
+    instagram: "https://www.instagram.com/nathanenglert/",
+    linkedin: "https://www.linkedin.com/in/nathan-englert/",
+    twitter: "https://twitter.com/nathanenglert",
+    twitterUsername: "@nathanenglert",
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,30 +36,36 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Makefolio',
-        short_name: 'Makefolio',
-        start_url: '/',
-        background_color: '#2980b9',
-        theme_color: '#2980b9',
-        display: 'standalone',
-        icon: 'src/images/gatsby-icon.png',
-        orientation: 'portrait',
+        name: "Makefolio",
+        short_name: "Makefolio",
+        start_url: "/",
+        background_color: "#2980b9",
+        theme_color: "#2980b9",
+        display: "standalone",
+        icon: "src/images/gatsby-icon.png",
+        orientation: "portrait",
       },
     },
-    'gatsby-plugin-sass',
+    "gatsby-plugin-sass",
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: "gatsby-plugin-google-analytics",
       options: {
-        trackingId: 'UA-4669276-2',
+        trackingId: "UA-4669276-2",
         anonymize: true,
       },
     },
-    'gatsby-plugin-sitemap',
+    "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://nathanenglert.com`,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -68,7 +74,7 @@ module.exports = {
             resolve: `gatsby-remark-default-html-attrs`,
             options: {
               p: {
-                className: 'content',
+                className: "content",
               },
             },
           },
@@ -76,7 +82,7 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-contentful',
+      resolve: "gatsby-source-contentful",
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACEID,
         accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,
