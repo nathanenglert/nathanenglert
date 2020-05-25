@@ -41,8 +41,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Makefolio",
-        short_name: "Makefolio",
+        name: "Nathan Englert",
+        short_name: "Nathan",
         start_url: "/",
         background_color: "#2980b9",
         theme_color: "#2980b9",
