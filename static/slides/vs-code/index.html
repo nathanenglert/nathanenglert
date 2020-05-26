@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Slides on VS Code - Nathan Englert</title>
+
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="../plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h5>A look at..</h5>
+          <h1>Nathan's<br />VS Code Setup</h1>
+        </section>
+        <section>
+          <h1>Settings</h1>
+        </section>
+        <section>
+          <h2>Auto Formatting</h2>
+          <pre>
+            <code class="makefile" data-trim data-noescape data-line-numbers>
+              "editor.formatOnPaste": true,
+              "editor.formatOnSave": true,
+            </code>
+          </pre>
+        </section>
+        <section>
+          <section>
+            <h2>New Font</h2>
+            <pre>
+            <code class="makefile frag-fix" data-trim data-noescape data-line-numbers="1-3|2">
+              "editor.fontFamily": "JetBrains Mono, monospace",
+              "editor.fontLigatures": true,
+              "editor.fontSize": 14,
+            </code>
+          </pre>
+          </section>
+          <section>
+            <h2>Font Ligatures</h2>
+            <img data-src="./images/ligatures.png" />
+          </section>
+        </section>
+        <section>
+          <h2>Highlight Unsaved Work</h2>
+          <pre>
+            <code class="makefile" data-trim data-noescape data-line-numbers>
+              "workbench.editor.highlightModifiedTabs": true,
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2>Cursor Awesomeness</h2>
+          <pre>
+            <code class="makefile" data-trim data-noescape data-line-numbers>
+              "editor.cursorBlinking": "phase",
+              "editor.cursorSmoothCaretAnimation": true,
+              "editor.cursorStyle":"line",
+              "editor.cursorWidth": 2,
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h2>Minimalist Minimap</h2>
+          <pre>
+            <code class="makefile" data-trim data-noescape data-line-numbers>
+              "editor.minimap.renderCharacters": false,
+            </code>
+          </pre>
+        </section>
+        <section>
+          <section>
+            <h2 class="text-blink">
+              <span class="text-red">WARNING</span>: Controversial
+            </h2>
+          </section>
+          <section>
+            <h2>Tab Size</h2>
+            <pre>
+              <code class="makefile" data-trim data-noescape data-line-numbers>
+                "editor.tabSize": 2,
+              </code>
+            </pre>
+          </section>
+        </section>
+        <section>
+          <h1>Extensions</h1>
+        </section>
+        <section>
+          <h2>Auto Close Tag</h2>
+          <img data-src="./images/autoclosetag.gif" />
+        </section>
+        <section>
+          <h2>Auto Rename Tag</h2>
+          <img data-src="./images/autorenametag.gif" />
+        </section>
+        <section>
+          <h2>Git Graph</h2>
+          <img data-src="./images/gitgraph.gif" />
+        </section>
+        <section>
+          <h2>Highlight</h2>
+          <img data-src="./images/highlight.png" />
+        </section>
+        <section>
+          <h2>Material Icon Theme</h2>
+          <img data-src="./images/materialicontheme.png" />
+        </section>
+        <section>
+          <h2>Prettier</h2>
+          <img data-src="./images/prettier.gif" />
+        </section>
+        <section>
+          <h2>Todo+</h2>
+          <img data-src="./images/todoplus.png" />
+        </section>
+        <section>
+          <h2>That's it!</h2>
+          <img data-src="./images/highfive.gif" />
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      Reveal.initialize({
+        hash: true,
+        controlsTutorial: true,
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
