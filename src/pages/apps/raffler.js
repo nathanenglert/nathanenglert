@@ -6,12 +6,6 @@ import Layout from '../../components/layout';
 import Navbar from '../../components/navbar';
 import SEO from '../../components/seo';
 
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-}
-
 class Raffler extends React.Component {
   constructor(props) {
     super(props);
@@ -32,11 +26,6 @@ class Raffler extends React.Component {
     };
 
     this.addRaffler = this.addRaffler.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleFeedbackChange = this.handleFeedbackChange.bind(this);
-    this.handleFeedbackSubmit = this.handleFeedbackSubmit.bind(this);
-    this.onDonationClick = this.onDonationClick.bind(this);
-    this.openModal = this.openModal.bind(this);
     this.pickWinner = this.pickWinner.bind(this);
   }
 
@@ -48,51 +37,6 @@ class Raffler extends React.Component {
         rafflers,
       };
     });
-  }
-
-  closeModal(e) {
-    if (e) e.preventDefault();
-
-    this.setState({ feedbackOpen: false });
-  }
-
-  contentForBetaSignup() {
-    return (
-      <section className="modal-card-body">
-        <p class="content">
-          I promise not to spam you or share your email address with anyone
-          else. By signing up, you will receive updates on the progress of
-          Raffler Pro and the opportunity to join the beta.
-        </p>
-        <input type="hidden" name="form-name" value="raffler-pro-beta" />
-        <div className="field" hidden>
-          <label className="label">Don’t fill this field out</label>
-          <div className="control">
-            <input name="bot-field" onChange={this.handleFeedbackChange} />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">What's your email address?</label>
-          <div className="control">
-            <input
-              className="input"
-              type="email"
-              name="email"
-              placeholder="e.g. nenglert@gmail.com"
-              onChange={this.handleFeedbackChange}
-            />
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  contentForBetaThankYou() {
-    return (
-      <section className="modal-card-body">
-        <p class="content">Thanks! You're on the list.</p>
-      </section>
-    );
   }
 
   getRandomIntInclusive(min, max) {
@@ -110,23 +54,6 @@ class Raffler extends React.Component {
 
       return { feedback };
     });
-  }
-
-  handleFeedbackSubmit(e) {
-    e.preventDefault();
-
-    const form = e.target;
-
-    fetch('/apps/raffler', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state.feedback,
-      }),
-    });
-
-    this.setState({ feedbackSubmitted: true });
   }
 
   handleChange(i, event) {
@@ -156,14 +83,6 @@ class Raffler extends React.Component {
       return;
 
     this.addRaffler();
-  }
-
-  onDonationClick() {
-    this.setState({ donationSubmitted: true });
-  }
-
-  openModal() {
-    this.setState({ feedbackOpen: true });
   }
 
   pickWinner() {
@@ -258,25 +177,17 @@ class Raffler extends React.Component {
                 </p>
                 <br />
                 <h2 className="subtitle">
-                  <strong>Raffler Pro</strong> is coming!{' '}
-                  <span className="tag is-info">NEW</span>
+                  Thank you for your support!
                 </h2>
                 <p className="content">
-                  For a small monthly payment, you'll get access to all sorts of
-                  features like:
-                  <ul>
-                    <li>Saving lists for later</li>
-                    <li>Importing and exporting lists</li>
-                    <li>Facebook and Twitter integration</li>
-                    <li>Personal branding</li>
-                    <li>Presentation view</li>
-                    <li>And more!</li>
-                  </ul>
+                  It's crazy to think that we launched Raffler 5 years ago. My wife 
+                  was working for Pampered Chef and needed an easy way to run raffles 
+                  for her parties. Now, several years later, we still see consistent 
+                  traffic to this page.
                 </p>
                 <p className="content">
-                  <button className="button is-info" onClick={this.openModal}>
-                    Get notified of the beta!
-                  </button>
+                  If you want to show your support, <em>buy us a coffee</em>{' '}
+                  using the button in the bottom right corner. Thank you!
                 </p>
                 <br />
               </div>
@@ -364,49 +275,6 @@ class Raffler extends React.Component {
             </div>
           </div>
         </section>
-        <div
-          className={'modal ' + (this.state.feedbackOpen ? 'is-active' : '')}
-        >
-          <div className="modal-background" />
-          <div className="modal-card">
-            <form
-              name="raffler-pro-beta"
-              method="post"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              onSubmit={this.handleFeedbackSubmit}
-            >
-              <header className="modal-card-head">
-                <p className="modal-card-title">Beta Signup</p>
-                <button
-                  className="delete"
-                  aria-label="close"
-                  onClick={this.closeModal}
-                />
-              </header>
-              {this.state.feedbackSubmitted
-                ? this.contentForBetaThankYou()
-                : this.contentForBetaSignup()}
-
-              <footer className="modal-card-foot">
-                {this.state.feedbackSubmitted ? (
-                  <button className="button is-info" onClick={this.closeModal}>
-                    Close
-                  </button>
-                ) : (
-                  <button type="submit" className="button is-info">
-                    Send
-                  </button>
-                )}
-                {!this.state.feedbackSubmitted && (
-                  <button className="button" onClick={this.closeModal}>
-                    Cancel
-                  </button>
-                )}
-              </footer>
-            </form>
-          </div>
-        </div>
       </Layout>
     );
   }
