@@ -100,12 +100,6 @@ module.exports = {
         accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,
       },
     },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `51767006`,
-      },
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
