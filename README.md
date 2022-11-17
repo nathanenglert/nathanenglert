@@ -1,4 +1,4 @@
-**Hi, I'm Nathan.** I am a technology evangelist who specializes in API development. I work at [New Balance](https://newbalance.com) and am leading a team of developers focused on building the backbone of NB's omnichannel customer experience around the world.
+**Hi, I'm Nathan.** I am a technology evangelist who specializes in API development. I work at [Saks OFF 5th](https://saksoff5th.com) and am leading a team focused on developer experience.
 
 As a leader, I enjoy building team cultures that support growth, inclusivity, and creativity. As an engineer, I love increasing operational efficiency through the use of technology and automation.
 
