@@ -30,9 +30,8 @@ const IndexPage = ({ data }) => {
                 <strong>Hi, I'm Nathan.</strong>
                 &nbsp;I am a technology evangelist who specializes in API
                 development. I work at{' '}
-                <a href="https://www.newbalance.com">New Balance</a> and am
-                leading a team of developers focused on building the backbone of
-                NB's omnichannel customer experience around the world.
+                <a href="https://www.saksoff5th.com/">Saks OFF 5th</a> and am 
+                leading a team focused on developer experience.
               </p>
               <p className="content">
                 As a leader, I enjoy building team cultures that support growth,
@@ -44,7 +43,7 @@ const IndexPage = ({ data }) => {
                 In my spare time, I like to <a href="/apps">build things</a> and
                 contribute to <a href={data.site.siteMetadata.devto}>DEV</a>.
                 You can also find me on{' '}
-                <a href={data.site.siteMetadata.twitter}>Twitter</a> and{' '}
+                <a rel="me" href="https://mastodon.gamedev.place/@nathanenglert">Mastodon</a> and{' '}
                 <a href={data.site.siteMetadata.linkedin}>LinkedIn</a>.
               </p>
             </div>
