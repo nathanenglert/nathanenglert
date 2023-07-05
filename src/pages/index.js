@@ -30,8 +30,9 @@ const IndexPage = ({ data }) => {
                 <strong>Hi, I'm Nathan.</strong>
                 &nbsp;I am a technology evangelist who specializes in API
                 development. I work at{' '}
-                <a href="https://www.saksoff5th.com/">Saks OFF 5th</a> and am 
-                leading a team focused on developer experience.
+                <a href="https://www.lassomd.com/">Lasso MD</a> as a Staff Engineer. 
+                We're focused on building the next evolution of marketing enablement 
+                software for dental practices!
               </p>
               <p className="content">
                 As a leader, I enjoy building team cultures that support growth,
