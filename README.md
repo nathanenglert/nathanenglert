@@ -1,4 +1,4 @@
-**Hi, I'm Nathan.** I am a technology evangelist who specializes in API development. I work at [Saks OFF 5th](https://saksoff5th.com) and am leading a team focused on developer experience.
+**Hi, I'm Nathan.** I am a technology evangelist who specializes in API development. I work at [Lasso MD](https://lassomd.com) as a Staff Engineer. We're focused on building the next evolution of marketing enablement software for dental practices!
 
 As a leader, I enjoy building team cultures that support growth, inclusivity, and creativity. As an engineer, I love increasing operational efficiency through the use of technology and automation.
 
