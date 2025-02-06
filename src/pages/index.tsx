@@ -1,20 +1,15 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import ProfileImage from "../images/profile.jpg";
-import SEO from "../components/seo";
-import Wrapper from "../components/foundation/wrapper";
+import Seo from "../components/seo";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data }: { data: any }) => {
   const blogPosts = data.allContentfulBlogPost.edges;
 
   return (
     <Layout>
-      <SEO location="/" />
-      <Wrapper className="lg:pt-24">
-        <p className="text-center text-2xl font-bold">Under Construction</p>
-      </Wrapper>
+      <Seo location="/" />
+      <p className="text-center text-2xl font-bold">Under Construction</p>
     </Layout>
   );
 };
@@ -26,12 +21,7 @@ export const query = graphql`
   query BlogPostsPageQuery {
     site {
       siteMetadata {
-        gatsby
-        bulma
-        twitter
         github
-        linkedin
-        devto
         instagram
       }
     }

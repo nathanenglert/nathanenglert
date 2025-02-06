@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import BlogFooter from "../components/blogFooter";
 import Layout from "../components/layout";
 import NavBar from "../components/navbar";
 import Seo from "../components/seo";
@@ -33,7 +32,6 @@ const BlogPost = ({ data }) => {
                   __html: body.childMarkdownRemark.html,
                 }}
               />
-              <BlogFooter publishDate={publishDate} />
             </div>
           </div>
         </div>

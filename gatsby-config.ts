@@ -1,3 +1,5 @@
+import type { GatsbyConfig } from "gatsby";
+
 let activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
@@ -7,7 +9,7 @@ require("dotenv").config({
   path: `.env.${activeEnv}`,
 });
 
-module.exports = {
+const config: GatsbyConfig = {
   siteMetadata: {
     title: "Nathan Englert",
     titleTemplate: "%s - Nathan Englert",
@@ -17,30 +19,42 @@ module.exports = {
     keywords: `Web developer, Web, Developer, CSS, HTML, JS, Javascript, Gatsby, Bulma Developer, CSS3, HTML5, CSharp, API, API Developer, Leader, Technology`,
     siteUrl: `https://nathanenglert.com`,
 
-    bulma: "https://bulma.io/",
-    gatsby: "https://www.gatsbyjs.org/",
-
-    devto: "https://dev.to/nathanenglert",
     github: `https://github.com/nathanenglert`,
     instagram: "https://www.instagram.com/nathanenglert/",
     linkedin: "https://www.linkedin.com/in/nathan-englert/",
-    twitter: "https://twitter.com/nathanenglert",
-    twitterUsername: "@nathanenglert",
   },
+  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
+  // If you use VSCode you can also use the GraphQL plugin
+  // Learn more at: https://gatsby.dev/graphql-typegen
+  graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-react-helmet",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-contentful",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACEID,
+        accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,
       },
     },
-    "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-postcss",
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [process.env.GATSBY_GOOGLE_ANALYTICS_ID],
+      },
+    },
+    "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://nathanenglert.com`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: "Nathan Englert",
         short_name: "Nathan",
@@ -64,14 +78,6 @@ module.exports = {
         orientation: "portrait",
       },
     },
-    "gatsby-plugin-postcss",
-    "gatsby-plugin-sitemap",
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: `https://nathanenglert.com`,
-      },
-    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -88,14 +94,22 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-contentful",
+      resolve: "gatsby-source-filesystem",
       options: {
-        spaceId: process.env.GATSBY_CONTENTFUL_SPACEID,
-        accessToken: process.env.GATSBY_CONTENTFUL_TOKEN,
+        name: "images",
+        path: "./src/images/",
       },
+      __key: "images",
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
   ],
 };
+
+export default config;
