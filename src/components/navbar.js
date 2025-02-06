@@ -1,16 +1,10 @@
-import React from 'react';
-
-import './style.scss';
+import React from "react";
 
 const Navbar = ({ className }) => (
-  <nav className={`navbar has-background-light ${className}`}>
-    <div className="container">
-      <div className="navbar-brand">
-        <a className="has-text-weight-bold is-size-5" href="/">
-          &lt;NE&gt;
-        </a>
-      </div>
-    </div>
+  <nav className={`p-2 bg-gray-200 ${className}`}>
+    <a className="text-xs" href="/">
+      Main site is under construction!
+    </a>
   </nav>
 );
 

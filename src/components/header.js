@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import './style.scss';
+import Navbar from "./navbar";
 
-import Navbar from './navbar';
-
-const Header = ({ siteTitle }) => (
-	<Navbar />
-);
+const Header = ({ siteTitle }) => <Navbar />;
 
 export default Header;

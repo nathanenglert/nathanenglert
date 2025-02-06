@@ -18,7 +18,12 @@ export default () => (
       }
     `}
     render={(data) => (
-      <Helmet>
+      <Helmet
+        bodyAttributes={{
+          class:
+            "bg-white text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900",
+        }}
+      >
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=1"
@@ -28,12 +33,12 @@ export default () => (
         <title>{data.site.siteMetadata.title}</title>
         <html lang="en" />
         {/* Google / Search Engine Meta Tags */}
-        <meta itemprop="name" content={data.site.siteMetadata.author} /> />
+        <meta itemprop="name" content={data.site.siteMetadata.author} />
         <meta
           itemprop="description"
           content={data.site.siteMetadata.description}
         />
-        <meta itemprop="image" content={data.site.siteMetadata.imageUrl} /> />
+        <meta itemprop="image" content={data.site.siteMetadata.imageUrl} />
         <script
           data-name="BMC-Widget"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"

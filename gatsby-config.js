@@ -37,6 +37,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-sharp",
+    "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,
@@ -63,14 +64,7 @@ module.exports = {
         orientation: "portrait",
       },
     },
-    "gatsby-plugin-sass",
-    {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-4669276-2",
-        anonymize: true,
-      },
-    },
+    "gatsby-plugin-postcss",
     "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-canonical-urls`,
@@ -83,10 +77,10 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-default-html-attrs`,
+            resolve: `gatsby-remark-classes`,
             options: {
-              p: {
-                className: "content",
+              classMap: {
+                paragraph: "content",
               },
             },
           },

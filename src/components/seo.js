@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ location, title, description, image, article }) => {
+const Seo = ({ location, title, description, image, article }) => {
   const { site } = useStaticQuery(query);
   const {
     defaultTitle,
@@ -15,7 +15,7 @@ const SEO = ({ location, title, description, image, article }) => {
   } = site.siteMetadata;
   const seo = {
     title: title || defaultTitle,
-    titleTemplate: title == null ? '' : titleTemplate,
+    titleTemplate: title == null ? "" : titleTemplate,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${location}`,
@@ -44,16 +44,16 @@ const SEO = ({ location, title, description, image, article }) => {
   );
 };
 
-export default SEO;
+export default Seo;
 
-SEO.propTypes = {
+Seo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   article: PropTypes.bool,
 };
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   title: null,
   description: null,
   image: null,
