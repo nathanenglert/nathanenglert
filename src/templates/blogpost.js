@@ -1,16 +1,16 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
-import BlogFooter from '../components/blogFooter';
-import Layout from '../components/layout';
-import NavBar from '../components/navbar';
-import SEO from '../components/seo';
+import BlogFooter from "../components/blogFooter";
+import Layout from "../components/layout";
+import NavBar from "../components/navbar";
+import Seo from "../components/seo";
 
 const BlogPost = ({ data }) => {
   const { title, slug, publishDate, body } = data.contentfulBlogPost;
   return (
     <Layout>
-      <SEO
+      <Seo
         title={title}
         description={body.childMarkdownRemark.excerpt}
         location={slug}
@@ -22,7 +22,7 @@ const BlogPost = ({ data }) => {
           <div className="columns">
             <div className="column is-6 is-offset-3">
               <h1>
-                <time className="has-text-grey-dark" dateTime="{publishDate}">
+                <time className="has-text-text-soft" dateTime="{publishDate}">
                   {publishDate}
                 </time>
                 {title}
@@ -45,7 +45,7 @@ const BlogPost = ({ data }) => {
 export default BlogPost;
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       id
       title

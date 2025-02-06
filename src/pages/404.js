@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import React from "react";
+import { Link, graphql } from "gatsby";
 
-import Layout from '../components/layout';
-import NavBar from '../components/navbar';
-import SEO from '../components/seo';
+import Layout from "../components/layout";
+import NavBar from "../components/navbar";
+import SEO from "../components/seo";
 
 const NotFoundPage = ({ data }) => {
   const blogPosts = data.allContentfulBlogPost.edges;
@@ -46,7 +46,7 @@ export default NotFoundPage;
 // prettier-ignore
 export const query = graphql`
   query NotFoundPageQuery {
-    allContentfulBlogPost(limit: 5, sort: { fields: publishDate, order: DESC }) {
+    allContentfulBlogPost(limit: 5, sort: { publishDate: DESC }) {
       edges {
         node {
           id

@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
-import './style.scss';
-import Header from './header';
+import Header from "./header";
 
 const LayoutNav = ({ children }) => (
-	<Layout>
-		<Header />
-		{ children }
-	</Layout>
+  <Layout>
+    <Header />
+    {children}
+  </Layout>
 );
 
 export default LayoutNav;
