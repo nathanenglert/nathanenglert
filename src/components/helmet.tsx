@@ -2,7 +2,21 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 
-export default () => (
+interface SiteMetadata {
+  title: string;
+  author: string;
+  imageUrl: string;
+  description: string;
+  keywords: string;
+}
+
+interface QueryData {
+  site: {
+    siteMetadata: SiteMetadata;
+  };
+}
+
+const HelmetComponent: React.FC<{ theme?: string }> = ({ theme = "cyber" }) => (
   <StaticQuery
     query={graphql`
       query helmetQuery {
@@ -17,11 +31,10 @@ export default () => (
         }
       }
     `}
-    render={(data) => (
+    render={(data: QueryData) => (
       <Helmet
         bodyAttributes={{
-          class:
-            "bg-white text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900",
+          class: `${theme} bg-background text-foreground`,
         }}
       >
         <meta
@@ -33,12 +46,12 @@ export default () => (
         <title>{data.site.siteMetadata.title}</title>
         <html lang="en" />
         {/* Google / Search Engine Meta Tags */}
-        <meta itemprop="name" content={data.site.siteMetadata.author} />
+        <meta itemProp="name" content={data.site.siteMetadata.author} />
         <meta
-          itemprop="description"
+          itemProp="description"
           content={data.site.siteMetadata.description}
         />
-        <meta itemprop="image" content={data.site.siteMetadata.imageUrl} />
+        <meta itemProp="image" content={data.site.siteMetadata.imageUrl} />
         <script
           data-name="BMC-Widget"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -54,3 +67,5 @@ export default () => (
     )}
   />
 );
+
+export default HelmetComponent;

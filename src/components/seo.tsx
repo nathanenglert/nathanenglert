@@ -1,18 +1,45 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
-const Seo = ({ location, title, description, image, article }) => {
-  const { site } = useStaticQuery(query);
+interface SEOProps {
+  location?: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+}
+
+interface SiteMetadata {
+  defaultTitle: string;
+  titleTemplate: string;
+  defaultDescription: string;
+  siteUrl: string;
+  defaultImage: string;
+}
+
+interface QueryResult {
+  site: {
+    siteMetadata: SiteMetadata;
+  };
+}
+
+const Seo: React.FC<SEOProps> = ({
+  location,
+  title,
+  description,
+  image,
+  article,
+}) => {
+  const { site } = useStaticQuery<QueryResult>(query);
   const {
     defaultTitle,
     titleTemplate,
     defaultDescription,
     siteUrl,
     defaultImage,
-    twitterUsername,
   } = site.siteMetadata;
+
   const seo = {
     title: title || defaultTitle,
     titleTemplate: title == null ? "" : titleTemplate,
@@ -20,6 +47,7 @@ const Seo = ({ location, title, description, image, article }) => {
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${location}`,
   };
+
   return (
     <Helmet title={seo.title} titleTemplate={seo.titleTemplate}>
       <meta name="description" content={seo.description} />
@@ -32,9 +60,6 @@ const Seo = ({ location, title, description, image, article }) => {
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
       <meta name="twitter:card" content="summary_large_image" />
-      {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
-      )}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
@@ -46,20 +71,6 @@ const Seo = ({ location, title, description, image, article }) => {
 
 export default Seo;
 
-Seo.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-};
-
-Seo.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false,
-};
-
 const query = graphql`
   query SEO {
     site {
@@ -69,7 +80,6 @@ const query = graphql`
         defaultDescription: description
         siteUrl
         defaultImage: imageUrl
-        twitterUsername
       }
     }
   }

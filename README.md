@@ -2,4 +2,4 @@
 
 As a leader, I enjoy building team cultures that support growth, inclusivity, and creativity. As an engineer, I love increasing operational efficiency through the use of technology and automation.
 
-**Want to learn more?** The site is prettier [over here](http://nathanenglert.com/).
+**Want to learn more?** The site is prettier [over here](http://nathanenglert.com/)!

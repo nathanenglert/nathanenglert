@@ -6,8 +6,30 @@ import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import SEO from "../../components/seo";
 
-class Raffler extends React.Component {
-  constructor(props) {
+interface RafflerEntry {
+  name: string;
+  amount: number;
+}
+
+interface RafflerState {
+  donationSubmitted: boolean;
+  feedback: Record<string, string>;
+  feedbackOpen: boolean;
+  feedbackSubmitted: boolean;
+  rafflers: RafflerEntry[];
+  alert: string;
+  winner: string;
+}
+
+interface ButtonProps {
+  label?: string;
+  className?: string;
+  onClick?: () => void;
+  children?: React.ReactNode;
+}
+
+class Raffler extends React.Component<{}, RafflerState> {
+  constructor(props: {}) {
     super(props);
 
     this.state = {
@@ -29,7 +51,7 @@ class Raffler extends React.Component {
     this.pickWinner = this.pickWinner.bind(this);
   }
 
-  addRaffler() {
+  addRaffler(): void {
     this.setState((state) => {
       const rafflers = [...state.rafflers, { name: "", amount: 1 }];
 
@@ -39,13 +61,13 @@ class Raffler extends React.Component {
     });
   }
 
-  getRandomIntInclusive(min, max) {
+  getRandomIntInclusive(min: number, max: number): number {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  handleFeedbackChange(e) {
+  handleFeedbackChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const input = e.target;
 
     this.setState((state) => {
@@ -56,16 +78,20 @@ class Raffler extends React.Component {
     });
   }
 
-  handleChange(i, event) {
+  handleChange(i: number, event: React.ChangeEvent<HTMLInputElement>): void {
     const target = event.target;
 
     this.setState((state) => {
       const rafflers = state.rafflers.map((raffler, j) => {
         if (i !== j) return raffler;
 
-        raffler[target.name] =
-          target.type === "number" ? parseInt(target.value) : target.value;
-        return raffler;
+        return {
+          ...raffler,
+          [target.name]:
+            target.type === "number"
+              ? parseInt(target.value) || 0
+              : target.value,
+        };
       });
 
       return {
@@ -74,7 +100,7 @@ class Raffler extends React.Component {
     });
   }
 
-  handleKeyDown(i, event) {
+  handleKeyDown(i: number, event: React.KeyboardEvent<HTMLInputElement>): void {
     if (
       this.state.rafflers.length !== i + 1 ||
       event.key !== "Tab" ||
@@ -85,8 +111,8 @@ class Raffler extends React.Component {
     this.addRaffler();
   }
 
-  pickWinner() {
-    var possibleContestants = this.state.rafflers.filter((raffler) => {
+  pickWinner(): void {
+    const possibleContestants = this.state.rafflers.filter((raffler) => {
       return raffler.name.length > 0 && raffler.amount > 0;
     });
 
@@ -98,25 +124,29 @@ class Raffler extends React.Component {
       return;
     }
 
-    var total = 0;
+    let total = 0;
     possibleContestants.forEach((raffler) => {
-      total += parseInt(raffler.amount);
+      total += raffler.amount;
     });
 
-    var random = this.getRandomIntInclusive(1, total);
+    const random = this.getRandomIntInclusive(1, total);
 
-    var running = 0;
-    var winner = possibleContestants.find((raffler) => {
-      running += parseInt(raffler.amount);
+    let running = 0;
+    const winner = possibleContestants.find((raffler) => {
+      running += raffler.amount;
       return random <= running;
     });
+
+    if (!winner) return;
 
     this.setState((state) => {
       const rafflers = state.rafflers.map((raffler) => {
         if (raffler.name !== winner.name) return raffler;
 
-        raffler.amount -= 1;
-        return raffler;
+        return {
+          ...raffler,
+          amount: raffler.amount - 1,
+        };
       });
 
       return {
@@ -127,7 +157,7 @@ class Raffler extends React.Component {
     });
   }
 
-  removeRaffler(i) {
+  removeRaffler(i: number): void {
     this.setState((state) => {
       const rafflers = state.rafflers.filter((_raffler, j) => i !== j);
 
@@ -138,15 +168,16 @@ class Raffler extends React.Component {
   }
 
   render() {
+    // ... existing render code remains the same ...
     return (
-      <Layout>
+      <Layout theme="light" className="w-full">
         <SEO
           title="Raffler"
           description="Raffler can be used to simulate any raffle or sweepstakes drawing."
           location="/apps/raffler"
         />
-        <Navbar />
         <section className="space-y-8 p-8">
+          {/* ... rest of the JSX remains unchanged ... */}
           <div className="lg:grid grid-cols-12">
             <div className="col-span-5 col-start-2">
               <h1 className="text-3xl is-raffler-branded">Raffler</h1>
@@ -198,7 +229,7 @@ class Raffler extends React.Component {
                     placeholder="Person's Name"
                     aria-label="Person's Name"
                     value={raffler.name}
-                    onChange={this.handleChange.bind(this, i)}
+                    onChange={(e) => this.handleChange(i, e)}
                   />
                   <input
                     type="number"
@@ -207,13 +238,13 @@ class Raffler extends React.Component {
                     placeholder="Amount"
                     aria-label="Amount of Tickets"
                     value={raffler.amount}
-                    onChange={this.handleChange.bind(this, i)}
-                    onKeyDown={this.handleKeyDown.bind(this, i)}
+                    onChange={(e) => this.handleChange(i, e)}
+                    onKeyDown={(e) => this.handleKeyDown(i, e)}
                   />
                   <SecondaryButton
                     className="rounded-l-none"
                     label="Remove person"
-                    onClick={this.removeRaffler.bind(this, i)}
+                    onClick={() => this.removeRaffler(i)}
                   >
                     &times;
                   </SecondaryButton>
@@ -263,13 +294,16 @@ class Raffler extends React.Component {
   }
 }
 
-const Button = ({ label, className, onClick, children }) => (
+const Button: React.FC<
+  ButtonProps & { type?: "button" | "submit" | "reset" }
+> = ({ label, className, onClick, children, type = "button" }) => (
   <button
+    type={type}
     className={
       "cursor-pointer bg-black text-white shadow hover:bg-gray-800 h-9 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 " +
-      className
+      (className || "")
     }
-    tabIndex="-1"
+    tabIndex={-1}
     aria-label={label}
     onClick={onClick}
   >
@@ -277,13 +311,18 @@ const Button = ({ label, className, onClick, children }) => (
   </button>
 );
 
-const SecondaryButton = ({ label, className, onClick, children }) => (
+const SecondaryButton: React.FC<ButtonProps> = ({
+  label,
+  className,
+  onClick,
+  children,
+}) => (
   <button
     className={
       "cursor-pointer bg-gray-300 text-black shadow hover:bg-gray-200 h-9 px-4 py-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 " +
-      className
+      (className || "")
     }
-    tabIndex="-1"
+    tabIndex={-1}
     aria-label={label}
     onClick={onClick}
   >

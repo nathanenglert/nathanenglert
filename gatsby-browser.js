@@ -5,4 +5,6 @@
  */
 
 // You can delete this file if you're not using it
+import "@fontsource/major-mono-display";
 import "./src/styles/global.css";
+import "./src/styles/cyberpunk.css";
