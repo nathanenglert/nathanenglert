@@ -170,7 +170,7 @@ class Raffler extends React.Component<{}, RafflerState> {
   render() {
     // ... existing render code remains the same ...
     return (
-      <Layout theme="light" className="w-full">
+      <Layout theme="light" className="sm:w-full">
         <SEO
           title="Raffler"
           description="Raffler can be used to simulate any raffle or sweepstakes drawing."
