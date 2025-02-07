@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/major-mono-display": "^5.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "css-doodle": "^0.41.0",
