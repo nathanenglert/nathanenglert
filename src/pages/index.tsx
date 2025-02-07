@@ -11,7 +11,7 @@ const IndexPage = ({ data }: { data: any }) => {
       <Seo location="/" />
       <div className="space-y-4 mb-8">
         <h1 className="text-2xl font-brand tracking-widest">
-          Welcome to Tomorrow.
+          Welcome to Tomorrow<span className="cyber-glitch-3">_</span>
         </h1>
         <p>
           I'm Nathan, an engineer, poet, and author. You can learn more{" "}
