@@ -3971,7 +3971,7 @@ type contentfulBlogPostBodyTextNodeSysSortInput = {
 type BlogPostsPageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type BlogPostsPageQueryQuery = { readonly site: { readonly siteMetadata: { readonly github: string | null, readonly instagram: string | null } | null } | null, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly type: string | null, readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly body: { readonly childMarkdownRemark: { readonly excerpt: string | null } | null } | null } }> } };
+type BlogPostsPageQueryQuery = { readonly site: { readonly siteMetadata: { readonly github: string | null, readonly instagram: string | null } | null } | null, readonly allContentfulBlogPost: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly type: string | null, readonly title: string | null, readonly slug: string | null, readonly publishDate: string | null, readonly tags: ReadonlyArray<string | null> | null } }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

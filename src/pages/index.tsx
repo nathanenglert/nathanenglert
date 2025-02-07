@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
@@ -9,7 +9,18 @@ const IndexPage = ({ data }: { data: any }) => {
   return (
     <Layout>
       <Seo location="/" />
-      <p className="text-center text-2xl font-bold">Under Construction</p>
+      <ul className="space-y-4">
+        {blogPosts.map((post: any) => (
+          <li key={post.node.id} className="flex gap-8 items-baseline">
+            <time className="font-mono text-xs text-accent-foreground tracking-widest">
+              {post.node.publishDate}
+            </time>
+            <Link to={post.node.slug} className="hover:underline">
+              {post.node.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Layout>
   );
 };
@@ -25,7 +36,7 @@ export const query = graphql`
         instagram
       }
     }
-    allContentfulBlogPost(limit: 5, sort: { publishDate: DESC }) {
+    allContentfulBlogPost(sort: { publishDate: DESC }) {
       edges {
         node {
           id
@@ -33,11 +44,6 @@ export const query = graphql`
           title
           slug
           publishDate(formatString: "YYYY.MM.DD")
-          body {
-            childMarkdownRemark {
-              excerpt(pruneLength: 260)
-            }
-          }
           tags
         }
       }

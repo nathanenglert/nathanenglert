@@ -16,7 +16,6 @@ interface SiteMetadata {
   defaultDescription: string;
   siteUrl: string;
   defaultImage: string;
-  twitterUsername: string;
 }
 
 interface QueryResult {
@@ -39,7 +38,6 @@ const Seo: React.FC<SEOProps> = ({
     defaultDescription,
     siteUrl,
     defaultImage,
-    twitterUsername,
   } = site.siteMetadata;
 
   const seo = {

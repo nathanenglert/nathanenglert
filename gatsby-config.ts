@@ -85,9 +85,7 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-classes`,
             options: {
-              classMap: {
-                paragraph: "content",
-              },
+              classMap: {},
             },
           },
         ],

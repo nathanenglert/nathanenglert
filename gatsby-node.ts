@@ -27,7 +27,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       return;
     }
 
-    const blogPostTemplate = path.resolve("./src/templates/blogpost.js");
+    const blogPostTemplate = path.resolve("./src/templates/blogpost.tsx");
 
     result.data?.allContentfulBlogPost.edges.forEach((edge) => {
       createPage({

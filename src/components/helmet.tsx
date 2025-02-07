@@ -16,7 +16,7 @@ interface QueryData {
   };
 }
 
-const HelmetComponent: React.FC = () => (
+const HelmetComponent: React.FC<{ theme?: string }> = ({ theme = "cyber" }) => (
   <StaticQuery
     query={graphql`
       query helmetQuery {
@@ -34,8 +34,7 @@ const HelmetComponent: React.FC = () => (
     render={(data: QueryData) => (
       <Helmet
         bodyAttributes={{
-          class:
-            "bg-white text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900",
+          class: `${theme} bg-background text-foreground`,
         }}
       >
         <meta

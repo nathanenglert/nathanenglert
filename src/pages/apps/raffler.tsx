@@ -170,13 +170,12 @@ class Raffler extends React.Component<{}, RafflerState> {
   render() {
     // ... existing render code remains the same ...
     return (
-      <Layout>
+      <Layout theme="light" className="w-full">
         <SEO
           title="Raffler"
           description="Raffler can be used to simulate any raffle or sweepstakes drawing."
           location="/apps/raffler"
         />
-        <Navbar />
         <section className="space-y-8 p-8">
           {/* ... rest of the JSX remains unchanged ... */}
           <div className="lg:grid grid-cols-12">
