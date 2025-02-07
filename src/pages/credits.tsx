@@ -11,9 +11,9 @@ const CreditsPage = () => {
       </h1>
       <div className="space-y-4 mt-4">
         <p>
-          I based the aesthetic on{" "}
+          This site is based on the aesthetic of{" "}
           <a
-            className="text-accent-foreground hover:underline"
+            className="text-secondary hover:underline"
             href="https://alddesign.github.io/cyberpunk-css/demo/"
           >
             cyberpunk.css
@@ -22,7 +22,9 @@ const CreditsPage = () => {
           design's essence. It's a fantastic theme, and I highly recommend
           checking it out.
         </p>
-        <p>The site itself is built with Gatsby, and hosted on Netlify.</p>
+        <p>
+          As for the plumbing, it's built with Gatsby, and hosted on Netlify.
+        </p>
       </div>
     </Layout>
   );
