@@ -9,6 +9,19 @@ const IndexPage = ({ data }: { data: any }) => {
   return (
     <Layout>
       <Seo location="/" />
+      <div className="space-y-4 mb-8">
+        <h1 className="text-2xl font-brand tracking-widest">
+          Welcome to Tomorrow.
+        </h1>
+        <p>
+          I'm Nathan, an engineer, poet, and author. You can learn more{" "}
+          <Link to="/about" className="text-secondary hover:underline">
+            about me here.
+          </Link>{" "}
+          I'm working on a few projects that I can't wait to share soon. For
+          now, check out some of my work below!
+        </p>
+      </div>
       <ul className="space-y-4">
         {blogPosts.map((post: any) => (
           <li key={post.node.id} className="flex gap-8 items-baseline">

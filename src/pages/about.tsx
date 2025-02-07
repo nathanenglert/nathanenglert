@@ -13,8 +13,9 @@ const AboutPage = () => {
         <p>
           Nathan Englert (b. 1989) is an engineer, poet, and author who explores
           near-future worlds through a cyberpunk lens. His work is influenced by
-          the visual storytelling of Simon Stålenhag, the artistic brilliance of
-          Yoji Shinkawa, and the narrative depth of Hideo Kojima.
+          the visual storytelling of Simon Stålenhag, the soundwaves of Gunship,
+          the artistic brilliance of Yoji Shinkawa, and the narrative depth of
+          Hideo Kojima.
         </p>
         <p>
           As an engineer, he is passionate about building technology that
