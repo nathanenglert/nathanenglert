@@ -14,7 +14,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ className, children, theme }) => (
   <main className="min-h-screen flex flex-col justify-between">
-    <div className={cn("w-lg mx-auto pt-16 px-4 md:px-0 flex-grow", className)}>
+    <div className={cn("w-lg mx-auto py-16 px-4 md:px-0 flex-grow", className)}>
       <Helmet theme={theme} />
       {children}
     </div>
