@@ -69,8 +69,8 @@ const ContactPage = () => {
       </h1>
       <div className="space-y-8 mt-4">
         <p>
-          I'm always looking for new projects and collaborations. If you'd like
-          to get in touch, please use the form below.
+          Have a question or just want to say hi? If you'd like to get in touch,
+          please use the form below.
         </p>
         {isSuccess && (
           <Alert>
