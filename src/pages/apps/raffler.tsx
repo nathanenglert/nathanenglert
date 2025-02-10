@@ -3,7 +3,6 @@ import React from "react";
 import "../../styles/raffler.css";
 
 import Layout from "../../components/layout";
-import Navbar from "../../components/navbar";
 import SEO from "../../components/seo";
 
 interface RafflerEntry {

@@ -15,6 +15,7 @@ export const Footer = ({ className }: { className?: string }) => {
       </Link>
       <div className="flex items-center justify-center gap-4 text-sm">
         <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
         <Link to="/credits">Credits</Link>
       </div>
       <span className="text-sm">&copy; 2025</span>
