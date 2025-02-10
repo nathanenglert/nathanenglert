@@ -20,7 +20,12 @@ const ContactPage = () => {
           Have a question or just want to say hi? If you'd like to get in touch,
           please use the form below.
         </p>
-        <form name="contact" className="space-y-8" data-netlify="true">
+        <form
+          name="contact"
+          method="POST"
+          className="space-y-8"
+          data-netlify="true"
+        >
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input placeholder="Jane" name="name" required />
