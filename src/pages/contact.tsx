@@ -22,10 +22,13 @@ const ContactPage = () => {
         </p>
         <form
           name="contact"
-          method="POST"
+          method="post"
           className="space-y-8"
+          netlify-honeypot="bot-field"
           data-netlify="true"
         >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
           <div className="space-y-2">
             <Label htmlFor="name">Name</Label>
             <Input placeholder="Jane" name="name" required />
