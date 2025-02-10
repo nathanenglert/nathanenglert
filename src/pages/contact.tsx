@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import React from "react";
 
 import { Button } from "@/components/ui/button";
 import {
-  Form,
   FormControl,
-  FormField,
   FormItem,
   FormLabel,
   FormMessage,
@@ -17,50 +12,8 @@ import { Input } from "@/components/ui/input";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { Textarea } from "@/components/ui/textarea";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircleIcon } from "lucide-react";
-
-const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().email(),
-  message: z.string().min(10).max(1000),
-});
 
 const ContactPage = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    try {
-      const formData = new FormData();
-      Object.entries(values).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
-
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Form submission failed: ${response.statusText}`);
-      }
-
-      setIsSuccess(true);
-      form.reset();
-    } catch (error) {
-      console.error("Form submission error:", error);
-    }
-  };
-
   return (
     <Layout>
       <Seo location="/contact" />
@@ -72,69 +25,36 @@ const ContactPage = () => {
           Have a question or just want to say hi? If you'd like to get in touch,
           please use the form below.
         </p>
-        {isSuccess && (
-          <Alert>
-            <CheckCircleIcon className="h-4 w-4" />
-            <AlertTitle>Got it!</AlertTitle>
-            <AlertDescription>
-              Thanks for reaching out, I'll get back to you as soon as possible.
-            </AlertDescription>
-          </Alert>
-        )}
-        <Form {...form}>
-          <form
-            name="contact"
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-8"
-            data-netlify="true"
-          >
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Jane" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="jane@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Message</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Hey, I love your site..."
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="cursor-pointer">
-              Submit
-            </Button>
-          </form>
-        </Form>
+        <form name="contact" className="space-y-8" data-netlify="true">
+          <FormItem>
+            <FormLabel>Name</FormLabel>
+            <FormControl>
+              <Input placeholder="Jane" name="name" required />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input placeholder="jane@example.com" name="email" required />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+          <FormItem>
+            <FormLabel>Message</FormLabel>
+            <FormControl>
+              <Textarea
+                placeholder="Hey, I love your site..."
+                name="message"
+                required
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+          <Button type="submit" className="cursor-pointer">
+            Submit
+          </Button>
+        </form>
       </div>
     </Layout>
   );
