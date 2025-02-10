@@ -1,17 +1,12 @@
 import React from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  FormControl,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 const ContactPage = () => {
   return (
@@ -26,31 +21,22 @@ const ContactPage = () => {
           please use the form below.
         </p>
         <form name="contact" className="space-y-8" data-netlify="true">
-          <FormItem>
-            <FormLabel>Name</FormLabel>
-            <FormControl>
-              <Input placeholder="Jane" name="name" required />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-          <FormItem>
-            <FormLabel>Email</FormLabel>
-            <FormControl>
-              <Input placeholder="jane@example.com" name="email" required />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-          <FormItem>
-            <FormLabel>Message</FormLabel>
-            <FormControl>
-              <Textarea
-                placeholder="Hey, I love your site..."
-                name="message"
-                required
-              />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
+          <div className="space-y-2">
+            <Label htmlFor="name">Name</Label>
+            <Input placeholder="Jane" name="name" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input placeholder="jane@example.com" name="email" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message">Message</Label>
+            <Textarea
+              placeholder="Hey, I love your site..."
+              name="message"
+              required
+            />
+          </div>
           <Button type="submit" className="cursor-pointer">
             Submit
           </Button>
