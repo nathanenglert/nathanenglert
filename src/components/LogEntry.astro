@@ -1,0 +1,24 @@
+---
+interface Props {
+  number: number;
+  tag: string;
+  title: string;
+  description: string;
+  url: string;
+}
+
+const { number, tag, title, description, url } = Astro.props;
+const paddedNumber = String(number).padStart(3, '0');
+const repoLabel = url.replace('https://', '');
+---
+<article class="log-entry">
+  <div class="log-entry__number">{paddedNumber}</div>
+  <div class="log-entry__body">
+    <div class="log-entry__tag">{tag}</div>
+    <h2 class="log-entry__title-wrapper">
+      <a href={url} class="log-entry__title">{title}</a>
+    </h2>
+    <p class="log-entry__description">{description}</p>
+    <a href={url} class="log-entry__repo">{repoLabel} ↗</a>
+  </div>
+</article>
