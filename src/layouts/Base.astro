@@ -2,438 +2,485 @@
 interface Props {
   title?: string;
 }
-const { title = 'Nathan Englert — One Thread' } = Astro.props;
+const { title = "Nathan Englert" } = Astro.props;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title}</title>
-  <link rel="alternate" type="application/rss+xml" title="Nathan Englert — One Thread" href="/rss.xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style is:global>
-    :root {
-      --bg:          #080B0E;
-      --ink:         #EDE7DA;
-      --ink-2:       #A9ADA3;
-      --ink-3:       #868C84; /* lifted from #6E746F (4.1:1) to ~5.7:1 on --bg for WCAG AA on small mono metadata */
-      --line:        rgba(237, 231, 218, 0.13);
-      --line-strong: rgba(237, 231, 218, 0.4);
-      --accent:      #E39A45;
-      --accent-2:    #4FC3C3;
-      --display:     'Source Serif 4', Georgia, serif;
-      --display-hero: 'Cormorant Garamond', Georgia, serif;
-      --meta:        'IBM Plex Mono', monospace;
-      --spine-w:     116px; /* width of the numbered-spine column */
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'Source Serif 4', Georgia, serif;
-      min-height: 100vh;
-      position: relative;
-      overflow-x: clip;
-    }
-
-    ::selection {
-      background: rgba(227, 154, 69, 0.3);
-      color: var(--ink);
-    }
-
-    /* Ambient rim light */
-    .ambient-glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(640px circle at 0% 0%,    rgba(79,195,195,0.08), transparent 65%),
-        radial-gradient(760px circle at 100% 10%, rgba(227,154,69,0.07), transparent 65%),
-        radial-gradient(800px circle at 50% 100%, rgba(79,195,195,0.04), transparent 70%);
-    }
-
-    /* Top rim-light bar */
-    .rim-bar {
-      position: relative;
-      z-index: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-    }
-
-    /* Main container */
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ===== HEADER ===== */
-    .site-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .site-header__name {
-      font-family: 'IBM Plex Mono', monospace;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      font-size: 11px;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .site-header__nav {
-      display: flex;
-      gap: 20px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .site-header__nav a {
-      color: var(--ink-3);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .site-header__nav a:hover {
-      color: var(--accent);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      position: relative;
-      padding: 96px 0 88px 0;
-      min-height: 380px;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero__portrait {
-      position: absolute;
-      top: 50%;
-      right: -40px;
-      transform: translateY(-50%);
-      width: min(360px, 44vw);
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      mask-image: radial-gradient(circle at 50% 48%, black 36%, transparent 71%);
-      -webkit-mask-image: radial-gradient(circle at 50% 48%, black 36%, transparent 71%);
-    }
-
-    .hero__content {
-      position: relative;
-      max-width: 460px;
-    }
-
-    .hero__kicker {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      color: var(--ink-3);
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .hero__kicker-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(227, 154, 69, 0.7);
-      display: inline-block;
-      flex-shrink: 0;
-      animation: beacon-pulse 3.4s ease-in-out infinite;
-    }
-
-    /* The one moving thing on the page: the live beacon breathes. */
-    @keyframes beacon-pulse {
-      0%, 100% { box-shadow: 0 0 7px rgba(227, 154, 69, 0.5);  opacity: 0.82; }
-      50%      { box-shadow: 0 0 14px rgba(227, 154, 69, 0.92); opacity: 1; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero__kicker-dot {
-        animation: none;
-        box-shadow: 0 0 10px rgba(227, 154, 69, 0.7);
-        opacity: 1;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Nathan Englert — One Thread"
+      href="/rss.xml"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400;1,8..60,500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      :root {
+        --bg: #080b0e;
+        --ink: #ede7da;
+        --ink-2: #a9ada3;
+        --ink-3: #868c84; /* lifted from #6E746F (4.1:1) to ~5.7:1 on --bg for WCAG AA on small mono metadata */
+        --line: rgba(237, 231, 218, 0.13);
+        --line-strong: rgba(237, 231, 218, 0.4);
+        --accent: #e39a45;
+        --accent-2: #4fc3c3;
+        --display: "Source Serif 4", Georgia, serif;
+        --display-hero: "Cormorant Garamond", Georgia, serif;
+        --meta: "IBM Plex Mono", monospace;
+        --spine-w: 116px; /* width of the numbered-spine column */
       }
-    }
 
-    .hero__h1 {
-      margin: 0 0 22px 0;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      font-size: clamp(30px, 5.2vw, 44px);
-      line-height: 1.12;
-      color: var(--ink);
-      text-wrap: pretty;
-    }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-    .hero__h1 em {
-      font-style: italic;
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    .hero__body {
-      margin: 0;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--ink-2);
-      text-wrap: pretty;
-    }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Source Serif 4", Georgia, serif;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: clip;
+      }
 
-    /* ===== LOG ===== */
-    .log {
-      padding-bottom: 24px;
-    }
+      ::selection {
+        background: rgba(227, 154, 69, 0.3);
+        color: var(--ink);
+      }
 
-    .log__header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line-strong);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
+      /* Ambient rim light */
+      .ambient-glow {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+        background:
+          radial-gradient(
+            640px circle at 0% 0%,
+            rgba(79, 195, 195, 0.08),
+            transparent 65%
+          ),
+          radial-gradient(
+            760px circle at 100% 10%,
+            rgba(227, 154, 69, 0.07),
+            transparent 65%
+          ),
+          radial-gradient(
+            800px circle at 50% 100%,
+            rgba(79, 195, 195, 0.04),
+            transparent 70%
+          );
+      }
 
-    .log__header-title {
-      color: var(--accent);
-    }
+      /* Top rim-light bar */
+      .rim-bar {
+        position: relative;
+        z-index: 1;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      }
 
-    .log__header-count {
-      color: var(--ink-3);
-    }
+      /* Main container */
+      .container {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
 
-    /* ===== LOG ENTRY ===== */
-    .log-entry {
-      padding: 40px 0;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px 28px;
-      flex-wrap: wrap;
-    }
+      /* ===== HEADER ===== */
+      .site-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 30px 0;
+        border-bottom: 1px solid var(--line);
+      }
 
-    /* The numbered spine: large mono register marks down the left margin —
-       line numbers in a source file, entries in a lab notebook. */
-    .log-entry__number {
-      flex: 0 0 var(--spine-w);
-      font-family: var(--meta);
-      font-weight: 500;
-      font-size: clamp(30px, 4.2vw, 42px);
-      line-height: 1;
-      margin-top: -0.12em; /* optically cap-align the numeral with the tag's top */
-      color: rgba(237, 231, 218, 0.18);
-      letter-spacing: -0.02em;
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-      transition: color 0.2s ease;
-    }
+      .site-header__name {
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        font-size: 11px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink);
+      }
 
-    /* Hovering a row activates its register mark — amber = action (Two-Job Rule) */
-    .log-entry:hover .log-entry__number {
-      color: rgba(227, 154, 69, 0.34);
-    }
+      .site-header__nav {
+        display: flex;
+        gap: 20px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
 
-    /* Last entry closes on the section's strong rule, not a doubled hairline */
-    .log-entry:last-of-type {
-      border-bottom: none;
-    }
+      .site-header__nav a {
+        color: var(--ink-3);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
 
-    .log-entry__body {
-      flex: 1 1 320px;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+      .site-header__nav a:hover {
+        color: var(--accent);
+      }
 
-    .log-entry__tag {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-2);
-    }
-
-    .log-entry__title-wrapper {
-      margin: 0;
-    }
-
-    .log-entry__title {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-weight: 500;
-      letter-spacing: -0.015em;
-      font-size: 26px;
-      line-height: 1.25;
-      color: var(--ink);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .log-entry__title:hover {
-      color: var(--accent);
-    }
-
-    .log-entry__description {
-      margin: 0;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 16px;
-      line-height: 1.62;
-      color: var(--ink-2);
-      text-wrap: pretty;
-    }
-
-    .log-entry__repo {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11.5px;
-      letter-spacing: 0.05em;
-      color: var(--ink-3);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    .log-entry__repo:hover {
-      color: var(--accent);
-    }
-
-    /* ===== CONTACT ===== */
-    .contact {
-      padding: 64px 0 96px 0;
-      border-top: 1px solid var(--line-strong);
-    }
-
-    .contact__h2 {
-      margin: 0 0 16px 0;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      font-size: 36px;
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .contact__body {
-      margin: 0 0 32px 0;
-      max-width: 480px;
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 16px;
-      line-height: 1.62;
-      color: var(--ink-2);
-      text-wrap: pretty;
-    }
-
-    .contact__links {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11.5px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .contact__links a {
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 4px;
-      transition: color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .contact__links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* ===== FOOTER ===== */
-    .site-footer {
-      margin-top: 80px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 10.5px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    /* Reflow at 900px: below this the absolutely-positioned portrait's opaque
-       core slides left into the headline. Drop it in-flow before that band. */
-    @media (max-width: 900px) {
+      /* ===== HERO ===== */
       .hero {
-        display: block;
-        min-height: 0;
-        padding: 56px 0 64px 0;
-      }
-
-      .hero__content {
-        max-width: none;
+        position: relative;
+        padding: 96px 0 88px 0;
+        min-height: 380px;
+        display: flex;
+        align-items: center;
       }
 
       .hero__portrait {
-        position: relative;
-        top: 0;
-        right: 0;
-        transform: none;
-        width: min(80vw, 380px);
-        margin: 0 auto -16px auto;
-        display: block;
+        position: absolute;
+        top: 50%;
+        right: -40px;
+        transform: translateY(-50%);
+        width: min(360px, 44vw);
+        height: auto;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        mask-image: radial-gradient(
+          circle at 50% 48%,
+          black 36%,
+          transparent 71%
+        );
+        -webkit-mask-image: radial-gradient(
+          circle at 50% 48%,
+          black 36%,
+          transparent 71%
+        );
       }
-    }
 
-    /* Narrow phones: tighten the numbered spine so the body keeps room */
-    @media (max-width: 480px) {
-      :root { --spine-w: 80px; }
-    }
-  </style>
-</head>
-<body>
-  <div class="ambient-glow"></div>
-  <div class="rim-bar"></div>
-  <div class="container">
-    <slot />
-  </div>
-</body>
+      .hero__content {
+        position: relative;
+        max-width: 460px;
+      }
+
+      .hero__kicker {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        color: var(--ink-3);
+        text-transform: uppercase;
+        margin-bottom: 28px;
+      }
+
+      .hero__kicker-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--accent);
+        box-shadow: 0 0 10px rgba(227, 154, 69, 0.7);
+        display: inline-block;
+        flex-shrink: 0;
+        animation: beacon-pulse 3.4s ease-in-out infinite;
+      }
+
+      /* The one moving thing on the page: the live beacon breathes. */
+      @keyframes beacon-pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 7px rgba(227, 154, 69, 0.5);
+          opacity: 0.82;
+        }
+        50% {
+          box-shadow: 0 0 14px rgba(227, 154, 69, 0.92);
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero__kicker-dot {
+          animation: none;
+          box-shadow: 0 0 10px rgba(227, 154, 69, 0.7);
+          opacity: 1;
+        }
+      }
+
+      .hero__h1 {
+        margin: 0 0 22px 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        font-size: clamp(30px, 5.2vw, 44px);
+        line-height: 1.12;
+        color: var(--ink);
+        text-wrap: pretty;
+      }
+
+      .hero__h1 em {
+        font-style: italic;
+        background: linear-gradient(90deg, var(--accent-2), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero__body {
+        margin: 0;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 17px;
+        line-height: 1.65;
+        color: var(--ink-2);
+        text-wrap: pretty;
+      }
+
+      /* ===== LOG ===== */
+      .log {
+        padding-bottom: 24px;
+      }
+
+      .log__header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line-strong);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .log__header-title {
+        color: var(--accent);
+      }
+
+      .log__header-count {
+        color: var(--ink-3);
+      }
+
+      /* ===== LOG ENTRY ===== */
+      .log-entry {
+        padding: 40px 0;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: flex-start;
+        gap: 8px 28px;
+        flex-wrap: wrap;
+      }
+
+      /* The numbered spine: large mono register marks down the left margin —
+       line numbers in a source file, entries in a lab notebook. */
+      .log-entry__number {
+        flex: 0 0 var(--spine-w);
+        font-family: var(--meta);
+        font-weight: 500;
+        font-size: clamp(30px, 4.2vw, 42px);
+        line-height: 1;
+        margin-top: -0.12em; /* optically cap-align the numeral with the tag's top */
+        color: rgba(237, 231, 218, 0.18);
+        letter-spacing: -0.02em;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+        transition: color 0.2s ease;
+      }
+
+      /* Hovering a row activates its register mark — amber = action (Two-Job Rule) */
+      .log-entry:hover .log-entry__number {
+        color: rgba(227, 154, 69, 0.34);
+      }
+
+      /* Last entry closes on the section's strong rule, not a doubled hairline */
+      .log-entry:last-of-type {
+        border-bottom: none;
+      }
+
+      .log-entry__body {
+        flex: 1 1 320px;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .log-entry__tag {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+      }
+
+      .log-entry__title-wrapper {
+        margin: 0;
+      }
+
+      .log-entry__title {
+        font-family: "Source Serif 4", Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        font-size: 26px;
+        line-height: 1.25;
+        color: var(--ink);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+
+      .log-entry__title:hover {
+        color: var(--accent);
+      }
+
+      .log-entry__description {
+        margin: 0;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 16px;
+        line-height: 1.62;
+        color: var(--ink-2);
+        text-wrap: pretty;
+      }
+
+      .log-entry__repo {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.05em;
+        color: var(--ink-3);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+
+      .log-entry__repo:hover {
+        color: var(--accent);
+      }
+
+      /* ===== CONTACT ===== */
+      .contact {
+        padding: 64px 0 96px 0;
+        border-top: 1px solid var(--line-strong);
+      }
+
+      .contact__h2 {
+        margin: 0 0 16px 0;
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        font-size: 36px;
+        background: linear-gradient(90deg, var(--accent-2), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .contact__body {
+        margin: 0 0 32px 0;
+        max-width: 480px;
+        font-family: "Source Serif 4", Georgia, serif;
+        font-size: 16px;
+        line-height: 1.62;
+        color: var(--ink-2);
+        text-wrap: pretty;
+      }
+
+      .contact__links {
+        display: flex;
+        gap: 28px;
+        flex-wrap: wrap;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .contact__links a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 4px;
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .contact__links a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        margin-top: 80px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      /* Reflow at 900px: below this the absolutely-positioned portrait's opaque
+       core slides left into the headline. Drop it in-flow before that band. */
+      @media (max-width: 900px) {
+        .hero {
+          display: block;
+          min-height: 0;
+          padding: 56px 0 64px 0;
+        }
+
+        .hero__content {
+          max-width: none;
+        }
+
+        .hero__portrait {
+          position: relative;
+          top: 0;
+          right: 0;
+          transform: none;
+          width: min(80vw, 380px);
+          margin: 0 auto -16px auto;
+          display: block;
+        }
+      }
+
+      /* Narrow phones: tighten the numbered spine so the body keeps room */
+      @media (max-width: 480px) {
+        :root {
+          --spine-w: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient-glow"></div>
+    <div class="rim-bar"></div>
+    <div class="container">
+      <slot />
+    </div>
+  </body>
 </html>
