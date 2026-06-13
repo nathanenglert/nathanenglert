@@ -9,6 +9,7 @@ const log = defineCollection({
     title: z.string(),
     description: z.string(),
     url: z.string(),
+    pubDate: z.coerce.date().optional(),
   }),
 });
 

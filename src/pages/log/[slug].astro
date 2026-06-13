@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('log', ({ data }) => data.url.startsWith('/log/'));
+
+  return entries.map(entry => ({
+    params: {
+      slug: entry.data.url.replace(/^\/log\//, '').replace(/\/$/, ''),
+    },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={`${entry.data.title} — Nathan Englert`}>
+  <header class="site-header">
+    <a href="/" class="site-header__name">Nathan Englert</a>
+    <nav class="site-header__nav">
+      <a href="https://github.com/nathanenglert">GitHub</a>
+      <a href="mailto:nenglert@gmail.com">Email</a>
+    </nav>
+  </header>
+
+  <main class="entry-page">
+    <a href="/#log" class="entry-page__back">Back to the Log</a>
+    <div class="entry-page__tag">{entry.data.tag}</div>
+    <h1 class="entry-page__title">{entry.data.title}</h1>
+    <p class="entry-page__description">{entry.data.description}</p>
+    <article class="entry-page__content">
+      <Content />
+    </article>
+  </main>
+</Base>
