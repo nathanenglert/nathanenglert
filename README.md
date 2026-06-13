@@ -1,5 +1,16 @@
-**Hi, I'm Nathan.** I am a technology evangelist who specializes in API development. I work at [Lasso MD](https://lassomd.com) as a Staff Engineer. We're focused on building the next evolution of marketing enablement software for dental practices!
+## Hi, I'm Nathan.
 
-As a leader, I enjoy building team cultures that support growth, inclusivity, and creativity. As an engineer, I love increasing operational efficiency through the use of technology and automation.
+I'm a systems thinker, a product engineer, and an occasional poet. Staff engineer by day; *maker by compulsion*.
 
-**Want to learn more?** The site is prettier [over here](http://nathanenglert.com/)!
+### Latest
+
+- **[Changefeed](https://github.com/nathanenglert/changefeed)** — Turns web page changes into tight events for AI agents, so you skip feeding the whole page to the LLM again. Deterministic pipeline, clean exit when nothing moved.
+- **[Clio](https://github.com/nathanenglert/clio)** — A Postgres workbench built around a simple idea: you should be able to watch what an AI agent is doing in your database. Same interface, shared activity strip, one binary.
+- **[Summit](https://github.com/nathanenglert/summit)** — Finds the meeting city no one has to complain about, scoring every hub by total group travel time with each traveler's route on the map.
+- **[Raffler](https://github.com/nathanenglert/raffler)** — A raffle picker with weighted draws and a slot-machine reveal. The odds are actually fair: crypto-grade randomness, entirely in your browser.
+
+The full thread, prettier, lives at **[nathanenglert.com](https://nathanenglert.com)**.
+
+---
+
+[Site](https://nathanenglert.com) &middot; [Email](mailto:nenglert@gmail.com) &middot; [Twitter](https://twitter.com/nathanenglert)
