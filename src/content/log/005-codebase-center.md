@@ -2,7 +2,7 @@
 number: 5
 tag: "ARTICLE · AI"
 title: "The Codebase Is No Longer the Center"
-description: "Why intent, constraints, and evals may become the governing layer of modern software development."
+description: "Why intent, constraints, and evals are becoming the governing layer of modern software development."
 url: "/log/the-codebase-is-no-longer-the-center/"
 pubDate: 2026-06-13
 ---
@@ -29,7 +29,7 @@ The new model is closer to intent-centered: humans maintain the goal, the constr
 
 This is why living specs suddenly matter more. A stale spec used to be annoying. In an agent-heavy workflow, it becomes dangerous, because the spec is part of what the agent is optimizing against. If the code changes but the intent layer does not, the system slowly loses the plot while still producing plausible work.
 
-It is also why I am skeptical of AI tooling that only feels like faster autocomplete. Faster typing is useful, but it is not the category shift. The deeper change is a verified pipeline: task comes in, intent is clarified, constraints are applied, agents generate possible changes, evals reject most of them, and a human reviews the remainder with evidence attached.
+The faster autocomplete phase already happened. The more interesting question now is whether the tool can preserve intent as work moves through agents, checks, review, and deployment. The deeper change is a verified pipeline: task comes in, intent is clarified, constraints are applied, agents generate possible changes, evals reject most of them, and a human reviews the remainder with evidence attached.
 
 In that world, the human engineer does not disappear. The role moves upward.
 
