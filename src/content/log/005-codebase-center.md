@@ -29,7 +29,7 @@ The new model is closer to intent-centered: humans maintain the goal, the constr
 
 This is why living specs suddenly matter more. A stale spec used to be annoying. In an agent-heavy workflow, it becomes dangerous, because the spec is part of what the agent is optimizing against. If the code changes but the intent layer does not, the system slowly loses the plot while still producing plausible work.
 
-The faster autocomplete phase already happened. The more interesting question now is whether the tool can preserve intent as work moves through agents, checks, review, and deployment. The deeper change is a verified pipeline: task comes in, intent is clarified, constraints are applied, agents generate possible changes, evals reject most of them, and a human reviews the remainder with evidence attached.
+That is where the verified pipeline matters. A task comes in, intent is clarified, constraints are applied, agents generate possible changes, evals reject most of them, and a human reviews the remainder with evidence attached. The code is still the thing that ships, but the governing work happens one layer above it.
 
 In that world, the human engineer does not disappear. The role moves upward.
 
