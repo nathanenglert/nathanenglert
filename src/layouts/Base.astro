@@ -443,6 +443,31 @@ const { title = "Nathan Englert" } = Astro.props;
         color: var(--ink-2);
       }
 
+      .entry-page__content a {
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(227, 154, 69, 0.45);
+        transition:
+          color 0.15s ease,
+          border-color 0.15s ease;
+      }
+
+      .entry-page__content a:hover,
+      .entry-page__content a:focus-visible {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .entry-page__content ul {
+        margin: 0 0 28px 0;
+        padding-left: 22px;
+      }
+
+      .entry-page__content li {
+        margin: 0 0 14px 0;
+        text-wrap: pretty;
+      }
+
       /* ===== CONTACT ===== */
       .contact {
         padding: 64px 0 96px 0;
