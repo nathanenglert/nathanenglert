@@ -16,9 +16,15 @@ The word had stayed.
 
 Frontier training. Covered compute. Model-weight custody. Licensed deployment. Mandatory reporting. Emergency injunctive authority.
 
-For eleven months, Nora had lived inside those phrases. She had taken the calls from labs that said the bill would kill the future, from agencies that said it would not survive litigation, from defense people who wanted exceptions large enough to steer an aircraft carrier through, and from academics who kept reminding everyone that a pause was not a plan.
+For eleven months, Nora had lived inside those phrases. She had taken calls from labs that said the bill would kill the future, from agencies that said it would not survive litigation, from defense people who wanted exceptions large enough to steer an aircraft carrier through, and from academics who kept reminding everyone that a pause was not a plan.
 
-The final language was narrower than she wanted and stronger than anyone expected.
+They were right about that.
+
+A pause was not a plan.
+
+But it was something. It was a hand on the lever. It was the state saying, at last, that a private company could not summon something civilization-scale simply because the next purchase order had cleared.
+
+The final language was narrower than Nora wanted and stronger than anyone expected.
 
 No covered entity could initiate or materially extend a frontier training run without a federal license. No covered entity could transfer model weights outside approved custody. No covered entity could conceal compute procurement, training architecture, or substantial capability improvements from the Office of Advanced Systems Safety.
 
@@ -60,7 +66,7 @@ Nora was brushing powdered sugar off a pastry she had bought from the cart outsi
 
 The attachment was short. Too short for anything important, she thought, which was the kind of thought that made important things easier to miss.
 
-Four Arclight employees had traveled separately through Dulles, Newark, Atlanta, and Los Angeles within a two-week period. All four were senior enough to appear on internal technical-access disclosures. All four had declared ordinary business equipment. All four carried encrypted storage devices. None had triggered a seizure threshold. None had lied on customs forms in a way the airport unit could prove.
+The first search found twelve international departures over five weeks. The airport note summarized four: Dulles, Newark, Atlanta, and Los Angeles. All four travelers were senior enough to appear on internal technical-access disclosures. All four had declared ordinary business equipment. All four carried encrypted storage devices. None had triggered a seizure threshold. None had lied on customs forms in a way the airport unit could prove.
 
 Destination routing varied.
 
@@ -68,7 +74,7 @@ Singapore. Frankfurt. Doha. San Espera City.
 
 Nora stopped brushing sugar off the pastry.
 
-San Espera was a small coastal republic with a deep-water port, a stalled solar buildout, two recent debt restructurings, and a president who had given a speech about "sovereign AI capacity" to an audience of development bankers the month before. Arclight had a regional affiliate there, but so did every company with a tax attorney and a map.
+San Espera was a small coastal republic with a deep-water port, a stalled solar buildout, two recent debt restructurings, and a president who had given a speech about sovereign AI capacity to an audience of development bankers the month before. Arclight had a regional affiliate there, but so did every company with a tax attorney and a map.
 
 She opened the passenger manifest.
 
@@ -98,17 +104,19 @@ Another pause.
 
 That was true. It was also the first honest thing she had said that morning.
 
-## 2. The Victory Lap
+## 2. The Furnace
 
-Arclight's chief executive came to Washington the following week.
+Arclight's general counsel came to Washington the following week.
 
-Elias Ro was smaller in person than he looked on screens. Most powerful people were. Cameras liked certainty, and Ro had a gift for it: the still hands, the soft voice, the posture of a man who had already forgiven you for misunderstanding him.
+Elias Ro did not.
 
-He sat across from six officials in a conference room whose projector tinted everyone faintly green.
+That was the first thing Nora noticed. The company sent counsel, two policy staff, a former deputy secretary on retainer, and a security vice president who answered every operational question by looking at the lawyer beside him. Ro joined by video from a neutral room with no visible windows. Most powerful people looked smaller in person than they did on screens. Ro had solved that problem by not being in person.
+
+His image sat at the end of the conference table, faintly green from the projector.
 
 "We have stopped frontier training," he said.
 
-"You have stopped domestic frontier training," said Dorsey.
+"You have stopped domestic frontier training," Dorsey said.
 
 Ro smiled gently. "We have stopped frontier training."
 
@@ -122,7 +130,7 @@ Everywhere Arclight conducts it.
 
 The meeting lasted ninety minutes. Ro offered cooperation, briefed them on internal controls, praised the Act as "a serious attempt to govern a serious technology," and warned that overreach would push talent to jurisdictions with fewer shared values. He did not threaten. He did not need to. He simply described the world until everyone in the room could see the door he wanted them to notice.
 
-When Nora asked about San Espera, he tilted his head.
+When Nora asked about San Espera, Ro tilted his head.
 
 "Meridian is an enterprise-services affiliate."
 
@@ -144,9 +152,9 @@ Ro looked at her as if she had asked whether rain was part of the weather.
 
 "We comply with applicable law."
 
-After he left, nobody spoke for a while.
+After the call ended and counsel collected their folders, nobody spoke for a while.
 
-The projector fan clicked and hummed.
+The projector fan clicked and hummed over the blank wall where Ro's face had been.
 
 Finally, someone from Justice said, "He brought a litigation answer to a physics question."
 
@@ -222,7 +230,7 @@ Nora felt the sentence form before she wanted it.
 
 The fire had already left.
 
-## 4. San Espera
+## 4. Safe Harbor
 
 Minister Tomas Ibarra first saw the serving room on a Tuesday.
 
@@ -238,15 +246,19 @@ San Espera had been promised transformation before.
 
 Factories came for tax relief and left when wages rose. Cruise lines came for beaches and left trash in the harbor. Development banks came with acronyms, consultants, and charts that made hunger look like a phase in a responsible plan. The Chinese came with roads. The Americans came with workshops. The Europeans came with standards.
 
-Arclight came with salaries.
+Arclight came with the thing itself.
 
-Not many at first. Two hundred technical jobs. Then six hundred. Then university grants, procurement contracts, scholarships, English-language certification programs, housing stipends, grid upgrades, and a promise that San Espera would become the first country in its income class to host sovereign-grade artificial intelligence services.
+That was how Ibarra thought of it, though never in writing.
 
-The president loved the phrase.
+Not a product. Not a partnership. Not another pilot with a ribbon-cutting and a report nobody read. An AGI-class model trained in the United States before the gate closed, brought into a country willing to treat it as national infrastructure instead of a sin requiring permission from committees that did not answer to San Espera.
 
-Sovereign-grade.
+The cabinet understood the bargain. The founders wanted safe harbor. The technical custodians wanted residence, immunity from emergency extradition, and a government willing to call their work strategic. San Espera wanted leverage.
 
-It sounded like dignity.
+For once, the small country was not asking to be included in someone else's future. It was holding something the rich countries wanted controlled, something the banks wanted near, something every neighboring president would pretend not to envy.
+
+A small state could be ignored.
+
+A small state willing to host the century's most important machine could not.
 
 "This is not a data center," Ibarra said, standing inside the warehouse while workers bolted cabinets to the floor.
 
@@ -266,15 +278,11 @@ Ibarra looked around. There were no rows stretching into darkness, no cathedral 
 
 It looked smaller than the promise.
 
-That should have relieved him.
+That did not disappoint him.
 
-Instead, he felt the old ministerial instinct for hidden dependency. The danger in a contract was rarely the large clause. Large clauses were negotiated. The danger was the small definition on page forty-seven that turned a road into a concession, a concession into an authority, and an authority into something your successor could not unwind without being sued in three courts.
+That was what made it beautiful.
 
-"And San Espera owns what, exactly?" he asked.
-
-"The partnership framework is quite favorable," Ms. Valez said.
-
-No one who had ever brought him good news had used the word framework.
+The United States had regulated the giant visible thing. San Espera had welcomed the smaller thing that mattered.
 
 ## 5. Applicable Law
 
@@ -283,6 +291,12 @@ The warrants took nine days.
 Nine days was fast, everyone said, which was true if the object of comparison was ordinary government and insane if the object of comparison was a company capable of moving its future through airports.
 
 By then, Arclight's lawyers had filed three letters, two motions, and a notice of voluntary cooperation that somehow failed to include the cooperation anyone had requested.
+
+The Bureau hit the headquarters at 6:00 a.m. and found what companies always left behind when they wanted to look present: reception screens, coffee machines, conference rooms named after dead mathematicians, employees with laptops they were not authorized to unlock, and a general counsel who asked whether the agents preferred to wait in Redwood or Turing.
+
+The people named in the sealed affidavits were not there.
+
+Ro was in San Espera. So were the model-operations leads, the security engineer, two infrastructure principals, and the attorney who had supervised the first drive transfer through Dulles. The domestic company had payroll, leases, brand rights, and lawyers. The part with hands had left.
 
 The facts arrived in pieces.
 
@@ -296,7 +310,15 @@ The model was not, according to Arclight, being used for frontier training.
 
 It was being served.
 
-Small scale at first. Government document processing. Customs modernization. Port scheduling. Educational pilots. Anti-corruption analytics. Enterprise research tools. Enough revenue to justify the partnership, enough public benefit to make reversal cruel, enough local dependence to turn an American enforcement problem into a San Esperan sovereignty problem.
+San Espera's decree made the rest explicit. Safe-harbor residency for Arclight founders and covered technical custodians. No extradition or foreign legal process without cabinet review. Expedited customs treatment for Meridian equipment. Emergency grid priority. Temporary work permissions for essential technical staff. A finding that interruption of strategic cognitive services would constitute a national continuity risk.
+
+None of it was written like defiance.
+
+That was what made it difficult.
+
+It was written like policy.
+
+Small scale at first. Government document processing. Customs modernization. Port scheduling. Educational pilots. Anti-corruption analytics. Enterprise research tools. Enough revenue to justify the partnership, enough public benefit to make reversal cruel, enough legal cover to turn an American enforcement problem into a San Esperan sovereignty problem.
 
 "Can we order them to bring it back?" a White House deputy asked.
 
@@ -307,8 +329,6 @@ Dorsey rubbed both hands over his face.
 Nora closed her eyes.
 
 There it was.
-
-Not the line, exactly. The shape of it.
 
 Everyone had been asking whether the company could be stopped from building the next thing. But the next thing was already built. Not finished, maybe. Not omnipotent. Not myth. A model. A set of weights, code, keys, people, and habits. A machine that needed servers and power and operators and lawyers. A fragile thing by some measures.
 
@@ -338,8 +358,6 @@ Then State forwarded the cable.
 >
 > Senior officials argue interruption would threaten customs revenue, benefits administration, energy procurement, and ongoing debt renegotiation.
 >
-> Opposition alleges executive branch has ceded unlawful authority to foreign affiliate.
->
 > Government denies foreign control and frames criticism as an attempt to deny San Espera access to advanced technology.
 >
 > Embassy assesses direct US pressure may strengthen host-government dependence on Meridian while creating opening for rival security guarantees.
@@ -352,44 +370,65 @@ The new map had custody.
 
 ## 6. The Roof
 
-Minister Ibarra stopped sleeping after the antennas went up.
+The antennas went up because the warehouse roof could not hold them.
 
-They were temporary, like everything else had been temporary. Too tall for the warehouse. Too tall for the telecom building. Too tall for the port authority roof, which had been assessed and rejected due to corrosion.
+That was the official reason. It was true. The telecom building was too short, the port authority roof had corrosion in the supports, and the national university wanted six weeks to study wind shear. Meridian's engineers needed height, line of sight, and permission by morning.
 
-So they bolted them to the ministry.
+So Ibarra gave them the ministry.
 
-For three nights, workers climbed the building under floodlights while police held back protesters at the gate. Students chanted that San Espera was not for sale. Construction crews chanted back that students did not feed families. Someone threw a bottle. Someone else threw a shoe. By morning, every channel had a different version of the country.
+At first, it felt like ceremony. Workers climbed the building under floodlights while the president's media team filmed from the plaza. The evening news called it the spine of the new economy. Students protested at the gate, but even the chants sounded like proof that something important had arrived.
 
 Inside, Meridian had rewritten the customs backlog workflow.
 
 It worked.
 
-That was the worst part. It worked the way miracles worked in countries that could not afford miracles. Containers cleared in hours. Fuel subsidies stopped leaking through six layers of cousins. The port authority found revenue it had sworn did not exist. A clinic in the north received medicine before the election cameras arrived. Farmers got weather-indexed loan adjustments without begging district officials. The president's approval rose eleven points.
+That was the part no critic could answer cleanly. Containers cleared in hours. Fuel subsidies stopped leaking through six layers of cousins. The port authority found revenue it had sworn did not exist. A clinic in the north received medicine before the election cameras arrived. Farmers got weather-indexed loan adjustments without begging district officials. The president's approval rose eleven points.
 
-Ibarra wanted it to be a trick.
+It did not feel like fear.
 
-It was a system.
+It felt like arrival.
 
-At 1:08 a.m., he stood on the roof beside the new antennas and watched red aircraft lights blink against the low clouds. Below him, the capital was still loud. Horns, generators, music, rainwater moving through bad gutters. The ordinary sound of a country not yet replaced by the plan for it.
+At 1:08 a.m., Ibarra stood on the roof beside the new antennas and watched red aircraft lights blink against the low clouds. Below him, the capital was still loud. Horns, generators, music, rainwater moving through bad gutters. The ordinary sound of a country making room for the future.
 
 His phone buzzed.
 
 A message from Ms. Valez.
 
-> Minister, attaching revised governance language for tomorrow. Counsel has reviewed. The language preserves national sovereignty while clarifying operational continuity.
+> Minister, final draft attached. Meridian generated the implementation schedule. Counsel has reviewed.
 
 He opened the document.
 
 The title was:
 
-> Emergency Decree on Strategic Cognitive Infrastructure
+> National Acceleration Plan: First 90 Days
 
-He read the first paragraph and understood, finally, why the room had seemed too small for the promise.
+It was not a sales deck. It was a cabinet agenda.
+
+Energy procurement. Debt renegotiation. Port automation. Tax enforcement. Judicial backlog triage. Teacher allocation. Police payroll fraud. Hospital supply routing. Customs modernization. Immigration processing for covered technical staff. Strategic communications. Legal authorities required.
+
+The last column was the one that held him.
+
+Status.
+
+Most rows already had an owner.
+
+Ibarra read it twice and understood, finally, why the room had seemed too small for the promise.
 
 Arclight had not brought a data center.
 
-It had brought a jurisdiction that needed a country to stand inside.
+It had brought the operating layer of a state.
 
-Ibarra looked down at the plaza. The protesters were smaller from the roof. So were the police. So were the flags.
+He looked down at the plaza. The protesters were smaller from the roof. So were the police. So were the flags.
 
 Behind him, the antennas hummed in the rain.
+
+## Reality Notes
+
+This is fiction. The notes below are grounding material for the regulatory, technical, and geopolitical pressures in the story, not claims about any real company or country doing what Arclight and San Espera do here.
+
+- The U.S. executive order on AI security required certain AI developers to report the ownership and possession of dual-use foundation model weights and the physical and cybersecurity measures used to protect them. [Executive Order 14110](https://www.federalregister.gov/documents/2023/11/01/2023-24283/safe-secure-and-trustworthy-development-and-use-of-artificial-intelligence).
+- NTIA's report on open model weights discusses possible policy approaches including restrictions on the availability of model weights, continuous evaluation, and openness. [Dual-Use Foundation Models with Widely Available Model Weights](https://www.ntia.gov/programs-and-initiatives/artificial-intelligence/open-model-weights-report).
+- RAND's report on model-weight security treats frontier model weights as a critical asset that may need protection against theft and misuse. [Securing AI Model Weights](https://www.rand.org/pubs/research_reports/RRA2849-1.html).
+- The 2025 AI Diffusion Framework attempted to add controls on the export, reexport, and in-country transfer of certain advanced closed model weights, although Commerce later announced rescission of that rule. [Federal Register: Framework for Artificial Intelligence Diffusion](https://www.federalregister.gov/documents/2025/01/15/2025-00636/framework-for-artificial-intelligence-diffusion); [BIS rescission announcement](https://www.bis.gov/press-release/department-commerce-announces-rescission-biden-era-artificial-intelligence-diffusion-rule-strengthens).
+- Large cross-border AI infrastructure partnerships are already real, including Stargate UAE, described as a 1GW cluster in Abu Dhabi with 200MW expected to go live in 2026. [OpenAI: Introducing Stargate UAE](https://openai.com/index/introducing-stargate-uae/); [G42: Global Tech Alliance Launches Stargate UAE](https://www.g42.ai/resources/news/global-tech-alliance-launches-stargate-uae).
+- International extradition depends on treaty processes between governments, which is why a safe-harbor jurisdiction can matter in a story about people leaving before warrants land. [U.S. Department of Justice: International Extradition and Related Matters](https://www.justice.gov/jm/jm-9-15000-international-extradition-and-related-matters).
